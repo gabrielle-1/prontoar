@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Cadastro Médico</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-image">
+        <img src="./assets/img/undraw_doctor_kw-5-l.svg" alt="" srcset="">
+      </div>
+      <div class="form">
+        <form action="#">
+          <div class="form-header">
+            <div class="title">
+              <h1>Cadastro Médico</h1>
+            </div>
+            <div class="log-in-button">
+              <button><a href="#">Confirmar</a></button>
+            </div>
+          </div>
+
+          <div class="input_group">
+            <div class="input-box">
+              <label for="first-name"> Primeiro Nome </label>
+              <input
+                id="first-name"
+                type="text"
+                name="first-name"
+                placeholder="Digite o seu primeiro nome"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label for="last-name"> Sobrenome </label>
+              <input
+                id="last-name"
+                type="text"
+                name="last-name"
+                placeholder="Digite o seu sobrenome"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="email"> E-mail </label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Digite o seu email"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="number"> Celular </label>
+              <input
+                id="number"
+                type="tel"
+                name="number"
+                placeholder="(xx) xxxxx-xxxx"
+                required
+              />
+            </div>
+            <div class="input-box">
+                <label for="number">Idade</label>
+                <input 
+                id="idade"
+                type="number"
+                name="idade"
+                placeholder="Digite sua idade"
+                required
+                />
+</div>
+                <div class="input-box">
+                    <label for="text">Localidade</label>
+                    <input 
+                    id="endereco"
+                    type=""
+                    name="endereco"
+                    placeholder="Digite seu Estado/Cidade"
+                    required
+                    />
+
+            </div>
+            <div class="input-box">
+              <label for="password"> Digite seu CRM </label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Digite sua senha"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="confirmpassword"> Confirme o seu CRM </label>
+              <input
+                id="confirmpassword"
+                type="password"
+                name="confirmpassword"
+                placeholder="Digite sua senha"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="gender-inputs">
+            <div class="gender-titles">
+              <h6>Gêneros</h6>
+            </div>
+
+            <div class="gender-groups">
+              <div class="gender-input">
+                <input type="radio" name="gender" id="female" />
+                <label for="female">Feminino</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="male" />
+                <label for="male">Masculino</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="others" />
+                <label for="others">Outros</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="none" />
+                <label for="None">Prefiro não informar</label>
+              </div>
+            </div>
+          </div>
+          <div class="continue-button">
+            <button><a href="#">Continuar</a></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
