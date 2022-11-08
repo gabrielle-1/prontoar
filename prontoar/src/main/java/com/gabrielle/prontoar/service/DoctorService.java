@@ -2,14 +2,14 @@ package com.gabrielle.prontoar.service;
 
 import com.gabrielle.prontoar.entity.Doctor;
 import com.gabrielle.prontoar.repository.DoctorRepository;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class DoctorService {
 
     private DoctorRepository doctorRepository;
