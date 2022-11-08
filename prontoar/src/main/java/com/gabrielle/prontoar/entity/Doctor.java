@@ -1,15 +1,12 @@
 package com.gabrielle.prontoar.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@AllArgsConstructor
 @ToString
-@Entity(name="api_doctor")
+@Entity(name = "api_doctor")
 public class Doctor {
 
     @Id
@@ -28,15 +25,16 @@ public class Doctor {
 
     private String phoneNumber;
 
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private String password;
+    public Doctor(String crm, String name, int age, char gender, String phoneNumber) {
+        this.crm = crm;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Doctor() {
     }
-
 
     public Long getId() {
         return id;
@@ -84,21 +82,5 @@ public class Doctor {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

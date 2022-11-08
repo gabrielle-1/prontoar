@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("api/v1/patients")
 @Slf4j
 @AllArgsConstructor
@@ -20,28 +21,29 @@ public class PatientController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Patient> getAllPatients(){
+    public List<Patient> getAllPatients() {
         return this.patientService.list();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Patient createPatient(@RequestBody Patient patient){
+    public Patient createPatient(@RequestBody Patient patient) {
         return this.patientService.createPatient(patient);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Patient> getPatientByID(@PathVariable (value = "id") Long id){
+    public ResponseEntity<Patient> getPatientByID(@PathVariable(value = "id") Long id) {
         return this.patientService.findById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Patient> updatePatientByID(@PathVariable (value = "id") Long id, @RequestBody Patient patient){
+    public ResponseEntity<Patient> updatePatientByID(@PathVariable(value = "id") Long id,
+            @RequestBody Patient patient) {
         return this.patientService.updateById(patient, id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deletePatientByID(@PathVariable (value = "id") Long id){
+    public ResponseEntity<Object> deletePatientByID(@PathVariable(value = "id") Long id) {
         return this.patientService.deleteById(id);
     }
 }

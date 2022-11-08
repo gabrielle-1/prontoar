@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("api/v1/doctors")
 @Slf4j
 @AllArgsConstructor
@@ -20,28 +21,28 @@ public class DoctorController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Doctor> getAllDoctors(){
+    public List<Doctor> getAllDoctors() {
         return this.doctorService.listDoctors();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Doctor createDoctor(@RequestBody Doctor doctor){
+    public Doctor createDoctor(@RequestBody Doctor doctor) {
         return this.doctorService.createDoctor(doctor);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Doctor> getDoctorByID(@PathVariable (value = "id") Long id){
+    public ResponseEntity<Doctor> getDoctorByID(@PathVariable(value = "id") Long id) {
         return this.doctorService.findDoctorById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Doctor> updateDoctorByID(@PathVariable (value = "id") Long id, @RequestBody Doctor doctor){
+    public ResponseEntity<Doctor> updateDoctorByID(@PathVariable(value = "id") Long id, @RequestBody Doctor doctor) {
         return this.doctorService.updateDoctorById(doctor, id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteDoctorByID(@PathVariable (value = "id") Long id){
+    public ResponseEntity<Object> deleteDoctorByID(@PathVariable(value = "id") Long id) {
         return this.doctorService.deleteDoctorById(id);
     }
 
