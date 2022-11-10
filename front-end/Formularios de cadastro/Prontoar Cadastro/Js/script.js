@@ -1,3 +1,16 @@
+function save(dados, url, mensagem){
+  $.ajax({
+    url: 'http://localhost:8080/api/v1/' + url,
+    method: 'POST',      
+    data: JSON.stringify(dados),
+    contentType: 'application/json; charset-utf-8',
+    success: function(response) {
+        console.log(response);          
+    }
+  }).fail(function(xhr, status, errorThrown) {
+        console.log(response)          
+    });    
+}
 
 function saveDoctor(){
   const nome = document.getElementById("first-name");
@@ -39,21 +52,7 @@ function saveDoctor(){
   };
 
   if(values){
-    
-    $.ajax({
-      url: 'http://localhost:8080/api/v1/doctors',
-      type: 'POST',      
-      data: values,
-      dataType: 'jsonp',
-      success: function(response) {
-          console.log("funfou: ");          
-          console.log(response);          
-      },
-      error: function(response) {
-          console.log(response)          
-      }
-
-    });
+    save(values, "doctors", "Médico salvo com sucesso!");
   }
 }
 
@@ -99,23 +98,7 @@ function savePatient(){
   };
 
   if(values){
-    
-    $.ajax({
-      url: 'http://localhost:8080/api/v1/patients',
-      type: 'POST',
-      dataType: 'JSON',
-      data: values,
-      dataType: 'jsonp',
-      success: function(response) {
-          console.log(response.status);          
-      },
-      error: function(response) {
-          console.log(response.status)          
-      }
-
-    });
-
+    save(values, "patients", "Paciente salvo com sucesso!");
   }
 
-  console.log(values)
 }
