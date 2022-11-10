@@ -14,6 +14,7 @@ public class PatientService {
 
     private PatientRepository patientRepository;
 
+<<<<<<< HEAD
     public Patient createPatient(Patient patient){
         return this.patientRepository.save(patient);
     }
@@ -23,19 +24,39 @@ public class PatientService {
     }
 
     public ResponseEntity<Patient> findById(Long id){
+=======
+    public Patient createPatient(Patient patient) {
+        return this.patientRepository.save(patient);
+    }
+
+    public List<Patient> list() {
+        return this.patientRepository.findAll();
+    }
+
+    public ResponseEntity<Patient> findById(Long id) {
+>>>>>>> origin/other
         return this.patientRepository.findById(id)
                 .map(patient -> ResponseEntity.ok().body(patient))
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     public ResponseEntity<Patient> updateById(Patient patient, Long id){
         return this.patientRepository.findById(id)
                 .map( patientToUpdate -> {
+=======
+    public ResponseEntity<Patient> updateById(Patient patient, Long id) {
+        return this.patientRepository.findById(id)
+                .map(patientToUpdate -> {
+>>>>>>> origin/other
                     patientToUpdate.setName(patient.getName());
                     patientToUpdate.setWeight(patient.getWeight());
                     patientToUpdate.setHeight(patient.getHeight());
                     patientToUpdate.setAge(patient.getAge());
+<<<<<<< HEAD
                     patientToUpdate.setEmail(patient.getEmail());
+=======
+>>>>>>> origin/other
                     patientToUpdate.setPhoneNumber(patient.getPhoneNumber());
 
                     Patient patientUpdated = patientRepository.save(patientToUpdate);
@@ -43,9 +64,15 @@ public class PatientService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     public ResponseEntity<Object> deleteById(Long id){
         return this.patientRepository.findById(id)
                 .map( patientToDelete -> {
+=======
+    public ResponseEntity<Object> deleteById(Long id) {
+        return this.patientRepository.findById(id)
+                .map(patientToDelete -> {
+>>>>>>> origin/other
                     patientRepository.deleteById(id);
                     return ResponseEntity.noContent().build();
                 }).orElse(ResponseEntity.notFound().build());

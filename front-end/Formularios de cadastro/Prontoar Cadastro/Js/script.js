@@ -70,6 +70,12 @@ function savePatient(){
   const date = document.getElementById("date");
   const altura = document.getElementById("altura");
 
+<<<<<<< HEAD
+=======
+  let nomeCompleto = nome.value + " " + sobrenome.value;
+
+
+>>>>>>> origin/other
   var generoElement = document.getElementsByName('gender');
   let genero = '';
 
@@ -87,10 +93,16 @@ function savePatient(){
   const values  = {
     "weight" : peso.value,
     "height" : altura.value,
+<<<<<<< HEAD
     "name": nome.value + sobrenome.value,    
     "cpf": cpf.value,    
     "age": idade.value,
     "birthDate": date.value,
+=======
+    "name": nomeCompleto.value,    
+    "cpf": cpf.value,    
+    "age": idade.value,
+>>>>>>> origin/other
     "gender": genero.value,
     "phoneNumber": tel.value,
     "socialName": social.value,
