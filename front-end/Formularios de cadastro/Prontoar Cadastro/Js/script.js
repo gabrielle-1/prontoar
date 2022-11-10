@@ -8,7 +8,7 @@ function save(dados, url, mensagem){
         console.log(response);          
     }
   }).fail(function(xhr, status, errorThrown) {
-        console.log(response)          
+        console.log(xhr)          
     });    
 }
 
@@ -36,8 +36,6 @@ function saveDoctor(){
 
   let nomeCompleto = nome.value + " " + sobrenome.value;
 
-  console.log(crm.value, nomeCompleto, idade.value, genero.value, tel.value, endereco.value);
-
   //criação dos dados em um Json
   const values  = {
     "crm": crm.value,    
@@ -46,9 +44,6 @@ function saveDoctor(){
     "gender": genero.value,
     "phoneNumber": tel.value,
     "address" : endereco.value
-    // "social": social.value,
-    // "email": email.value,    
-    // "endereco": endereco.value,
   };
 
   if(values){
@@ -60,7 +55,6 @@ function savePatient(){
   const nome = document.getElementById("first-name");
   const sobrenome = document.getElementById("last-name");
   const social = document.getElementById("social-name");
-  // const email = document.getElementById("email");
   const tel = document.getElementById("number");
   const idade = document.getElementById("idade");
   const endereco = document.getElementById("endereco");
@@ -70,12 +64,9 @@ function savePatient(){
   const date = document.getElementById("date");
   const altura = document.getElementById("altura");
 
-<<<<<<< HEAD
-=======
+
   let nomeCompleto = nome.value + " " + sobrenome.value;
 
-
->>>>>>> origin/other
   var generoElement = document.getElementsByName('gender');
   let genero = '';
 
@@ -91,22 +82,15 @@ function savePatient(){
 
   //criação dos dados em um Json
   const values  = {
+    "name": nomeCompleto.value,  
+    "cpf": cpf.value,     
+    "age": idade.value,  
+    "gender": genero.value,
     "weight" : peso.value,
     "height" : altura.value,
-<<<<<<< HEAD
-    "name": nome.value + sobrenome.value,    
-    "cpf": cpf.value,    
-    "age": idade.value,
-    "birthDate": date.value,
-=======
-    "name": nomeCompleto.value,    
-    "cpf": cpf.value,    
-    "age": idade.value,
->>>>>>> origin/other
-    "gender": genero.value,
     "phoneNumber": tel.value,
     "socialName": social.value,
-    "endereco": endereco.value,
+    "address": endereco.value,
   };
 
   if(values){

@@ -10,10 +10,7 @@
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
       crossorigin="anonymous">
     </script>
-<<<<<<< HEAD
-=======
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
->>>>>>> origin/other
     <title>Cadastro</title>
   </head>
 
@@ -66,18 +63,7 @@
                   name="social-name"
                   placeholder="Digite o seu nome"
                 />
-              </div>
-              <div class="input-box">
-                <label for="email"> E-mail </label>
-                <input
-                  id="email"
-                  type="email"
-                  class="e-mail"
-                  name="email"
-                  placeholder="Digite o seu email"
-                  required
-                />
-              </div>
+              </div>              
               <div class="input-box">
                 <label for="number"> Celular </label>
                 <input
@@ -141,22 +127,8 @@
                   placeholder="Digite sua altura"
                   required
                 />
-              </div>
+              </div>            
               <div class="input-box">
-<<<<<<< HEAD
-                <label for="date"> Data de Nascimento </label>
-                <input
-                  id="date"
-                  type="date"
-                  class="date"
-                  name="date"
-                  placeholder="Digite sua data de nascimento"
-                  required
-                />
-              </div>
-              <div class="input-box">
-=======
->>>>>>> origin/other
                 <label for="endereco"> Endereço </label>
                 <input
                   id="endereco"
@@ -176,17 +148,17 @@
 
             <div class="gender-groups">
               <div class="gender-input">
-                <input type="radio" name="gender" id="female" />
+                <input type="radio" name="gender" id="female" value="F" />
                 <label for="female">Feminino</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="male" />
+                <input type="radio" name="gender" id="male" value="M" />
                 <label for="male">Masculino</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="others" />
+                <input type="radio" name="gender" id="others" value="N" />
                 <label for="others">Outros</label>
               </div>
 
@@ -196,6 +168,7 @@
               </div>
             </div>
           </div>
+          </div>
           <div class="continue-button">
             <button type="submit" onclick="savePatient()">Continuar</button>
           </div>
@@ -203,9 +176,6 @@
       </div>
     </div>
     <script src="./Js/script.js"></script>    
-<<<<<<< HEAD
-=======
     <script>$("#number").mask("(00) 00000-0000");</script>
->>>>>>> origin/other
   </body>
 </html>
