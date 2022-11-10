@@ -5,7 +5,9 @@ function save(dados, url, mensagem){
     data: JSON.stringify(dados),
     contentType: 'application/json; charset-utf-8',
     success: function(response) {
-        console.log(response);          
+        console.log(response);  
+        alert(mensagem);  
+        document.location.reload(true);    
     }
   }).fail(function(xhr, status, errorThrown) {
         console.log(xhr)          
@@ -30,7 +32,7 @@ function saveDoctor(){
   }
 
   if(crm.value != confirmCrm.value){    
-    alert("Seu CRM estão diferentes!");
+    alert("CRM estão diferentes!");
     return false;
   }
 
@@ -61,9 +63,8 @@ function savePatient(){
   const cpf = document.getElementById("cpf");
   const confirmcpf = document.getElementById("confirmcpf");
   const peso = document.getElementById("peso");
-  const date = document.getElementById("date");
+  const date = document.getElementById("data");
   const altura = document.getElementById("altura");
-
 
   let nomeCompleto = nome.value + " " + sobrenome.value;
 
@@ -91,6 +92,7 @@ function savePatient(){
     "phoneNumber": tel.value,
     "socialName": social.value,
     "address": endereco.value,
+    "date": date.value
   };
 
   if(values){

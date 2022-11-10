@@ -3,7 +3,6 @@ package com.gabrielle.prontoar.entity;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @ToString
 @Entity(name = "api_doctor")
@@ -25,12 +24,15 @@ public class Doctor {
 
     private String phoneNumber;
 
-    public Doctor(String crm, String name, int age, char gender, String phoneNumber) {
+    private String address;
+
+    public Doctor(String crm, String name, int age, char gender, String phoneNumber, String address) {
         this.crm = crm;
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public Doctor() {
@@ -82,5 +84,13 @@ public class Doctor {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -3,7 +3,12 @@ package com.gabrielle.prontoar.entity;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @ToString
 @Entity(name = "api_patient")
@@ -21,12 +26,14 @@ public class Patient {
     private String address;
     private double weight;
     private double height;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate birthDate;
 
     public Patient() {
     }
 
-    public Patient(String name, String cpf, int age, char gender, String phoneNumber, String socialName, String address,
-            double weight, double height) {
+    public Patient(String name, LocalDate birthDate, String cpf, int age, char gender, String phoneNumber,
+            String socialName, String address, double weight, double height) {
         this.name = name;
         this.cpf = cpf;
         this.age = age;
@@ -36,6 +43,7 @@ public class Patient {
         this.address = address;
         this.weight = weight;
         this.height = height;
+        this.birthDate = birthDate;
     }
 
     public double getWeight() {
@@ -112,6 +120,14 @@ public class Patient {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
 }

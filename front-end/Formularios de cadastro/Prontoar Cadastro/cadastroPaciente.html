@@ -107,6 +107,17 @@
                 />
               </div>
               <div class="input-box">
+                <label for="dataNascimento"> Data de Nascimento </label>
+                <input
+                  id="data"
+                  type="date"
+                  class="data"
+                  name="data"
+                  placeholder="Digite sua data de nascimento"
+                  required
+                />
+              </div>
+              <div class="input-box">
                 <label for="peso"> Peso </label>
                 <input
                   id="peso"
@@ -140,7 +151,7 @@
                 />
               </div>
             </div>
-          </form>
+          
           <div class="gender-inputs">
             <div class="gender-titles">
               <h6>Gêneros</h6>
@@ -167,8 +178,7 @@
                 <label for="None">Prefiro não informar</label>
               </div>
             </div>
-          </div>
-          </div>
+          </div>          
           <div class="continue-button">
             <button type="submit" onclick="savePatient()">Continuar</button>
           </div>
