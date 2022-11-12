@@ -3,6 +3,8 @@ package com.gabrielle.prontoar.service;
 import com.gabrielle.prontoar.entity.Patient;
 import com.gabrielle.prontoar.repository.PatientRepository;
 import lombok.AllArgsConstructor;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,11 @@ public class PatientService {
         return this.patientRepository.findById(id)
                 .map(patient -> ResponseEntity.ok().body(patient))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    public Patient findByCpf(Long cpf) {
+        Optional<Patient> obj = patientRepository.findByCpf(cpf);
+        return obj.get();
     }
 
     public ResponseEntity<Patient> updateById(Patient patient, Long id) {

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.persistence.*;
 
@@ -18,7 +17,7 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String cpf;
+    private Long cpf;
     private int age;
     private char gender;
     private String phoneNumber;
@@ -32,7 +31,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String name, LocalDate birthDate, String cpf, int age, char gender, String phoneNumber,
+    public Patient(String name, LocalDate birthDate, Long cpf, int age, char gender, String phoneNumber,
             String socialName, String address, double weight, double height) {
         this.name = name;
         this.cpf = cpf;
@@ -74,11 +73,11 @@ public class Patient {
         this.name = name;
     }
 
-    public String getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 

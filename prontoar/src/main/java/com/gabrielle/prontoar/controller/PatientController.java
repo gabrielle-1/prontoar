@@ -31,9 +31,15 @@ public class PatientController {
         return this.patientService.createPatient(patient);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Patient> getPatientByID(@PathVariable(value = "id") Long id) {
-        return this.patientService.findById(id);
+    // @GetMapping("/{id}")
+    // public ResponseEntity<Patient> getPatientByID(@PathVariable(value = "id")
+    // Long id) {
+    // return this.patientService.findById(id);
+    // }
+
+    @GetMapping("/{cpf}")
+    public Patient getPatientByCPF(@PathVariable(value = "cpf") Long cpf) {
+        return this.patientService.findByCpf(cpf);
     }
 
     @PutMapping("/{id}")

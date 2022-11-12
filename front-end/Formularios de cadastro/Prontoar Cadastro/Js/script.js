@@ -23,7 +23,7 @@ function saveDoctor(){
   const crm = document.getElementById("crm");
   const confirmCrm = document.getElementById("confirmcrm");
 
-  var generoElement = document.getElementsByName('gender');
+  let generoElement = document.getElementsByName('gender');
   let genero = '';
 
   for(i = 0; i < generoElement.length; i++) {
@@ -60,15 +60,20 @@ function savePatient(){
   const tel = document.getElementById("number");
   const idade = document.getElementById("idade");
   const endereco = document.getElementById("endereco");
-  const cpf = document.getElementById("cpf");
-  const confirmcpf = document.getElementById("confirmcpf");
-  const peso = document.getElementById("peso");
   const date = document.getElementById("data");
-  const altura = document.getElementById("altura");
+
+  const cpf = document.getElementById("cpf").value;
+  var strCpf = cpf.replace("-", "").replace(".", "").replace(".", "");
+
+  const confirmcpf = document.getElementById("confirmcpf");
+  let peso = document.getElementById("peso").value;
+  peso = peso.replace("Kg", "");
+  
+  let altura = document.getElementById("altura").value;
+  altura = altura.replace("CM", "");
 
   let nomeCompleto = nome.value + " " + sobrenome.value;
-
-  var generoElement = document.getElementsByName('gender');
+  let generoElement = document.getElementsByName('gender');
   let genero = '';
 
   for(i = 0; i < generoElement.length; i++) {
@@ -76,19 +81,19 @@ function savePatient(){
         genero = generoElement[i];
   }
   
-  if(cpf.value != confirmcpf.value){    
+  if(cpf != confirmcpf.value){    
     alert("CPFs estão diferentes!");
     return false;
   }
 
   //criação dos dados em um Json
   const values  = {
-    "name": nomeCompleto.value,  
-    "cpf": cpf.value,     
+    "name": nomeCompleto,  
+    "cpf": strCpf,     
     "age": idade.value,  
     "gender": genero.value,
-    "weight" : peso.value,
-    "height" : altura.value,
+    "weight" : peso,
+    "height" : altura,
     "phoneNumber": tel.value,
     "socialName": social.value,
     "address": endereco.value,
@@ -99,4 +104,26 @@ function savePatient(){
     save(values, "patients", "Paciente salvo com sucesso!");
   }
 
+}
+
+function findPatient(){
+  const cpf = document.getElementById("cpf").value;
+  var strCpf = cpf.replace("-", "").replace(".", "").replace(".", "");
+
+  if(strCpf){
+    $.ajax({
+      url: 'http://localhost:8080/api/v1/patients/find/' + strCpf,
+      method: 'GET',      
+      data: JSON.stringify(dados),
+      contentType: 'application/json; charset-utf-8',
+      success: function(response) {
+          console.log(response);  
+          alert(mensagem);  
+          document.location.reload(true);    
+      }
+    }).fail(function(xhr, status, errorThrown) {
+          console.log(xhr)          
+      });   
+  }
+  
 }

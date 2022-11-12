@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <title>Buscar Paciente</title>
 </head>
 <body>
@@ -14,7 +20,6 @@
         </div>
         
         <div class="form">
-          <form action="#">
             <div class="form-header">
               <div class="title">
                 <h1>Consultar Paciente</h1>
@@ -22,13 +27,16 @@
             </div>
             <div class="input_group">
                 <div class="input-box">
-                  <label for="first-name"> CPF do paciente </label>
-                  <input id="first-name" type="text" name="first-name" placeholder="Digite cpf do paciente..." required />
+                  <label for="cpf"> CPF do paciente </label>
+                  <input id="cpf" type="text" name="cpf" placeholder="Digite cpf do paciente..." required />
                 </div>
             </div>    
-                <div class="log-in-button">
-                    <button><a href="#">Acessar</a></button>
-                </div>
+            <div class="log-in-button">
+              <button type="submit" onclick="findPatient()">Acessar</button>
+            </div>
+        </div>
     </div>
+    <script src="./Js/script.js"></script>    
+    <script>$("#cpf").mask("999.999.999-99");</script>
   </body>
 </html>
