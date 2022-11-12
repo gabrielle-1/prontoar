@@ -121,7 +121,7 @@
                 <label for="peso"> Peso </label>
                 <input
                   id="peso"
-                  type="number"
+                  type="text"
                   class="peso"
                   name="peso"
                   placeholder="Digite seu peso"
@@ -132,7 +132,7 @@
                 <label for="altura"> Altura </label>
                 <input
                   id="altura"
-                  type="number"
+                  type="text"
                   class="altura"
                   name="altura"
                   placeholder="Digite sua altura"
@@ -187,5 +187,10 @@
     </div>
     <script src="./Js/script.js"></script>    
     <script>$("#number").mask("(00) 00000-0000");</script>
+    <script>$("#cpf").mask("999.999.999-99");</script>
+    <script>$("#confirmcpf").mask("999.999.999-99");</script>
+    <script>$("#idade").mask("00");</script>
+    <script>$("#peso").mask("00.0 Kg");</script>
+    <script>$("#altura").mask("0.00 CM");</script>
   </body>
 </html>
