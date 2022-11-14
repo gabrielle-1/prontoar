@@ -12,34 +12,35 @@ import org.springframework.format.annotation.DateTimeFormat;
 @ToString
 @Entity(name = "api_patient")
 @AllArgsConstructor
-public class Patient {
+public class Patient extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    @Column(nullable = false)
     private Long cpf;
-    private int age;
-    private char gender;
-    private String phoneNumber;
+
+    @Column(nullable = false)
     private String socialName;
-    private String address;
+
+    @Column(nullable = false)
     private double weight;
+
+    @Column(nullable = false)
     private double height;
+
     @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @Column(nullable = false)
     private LocalDate birthDate;
 
     public Patient() {
     }
-
-    public Patient(String name, LocalDate birthDate, Long cpf, int age, char gender, String phoneNumber,
-            String socialName, String address, double weight, double height) {
-        this.name = name;
+    
+    public Patient(String name, String email, String phoneNumber, int age, String address, char gender, Long cpf,
+            String socialName, double weight, double height, LocalDate birthDate) {
+        super(name, email, phoneNumber, age, address, gender);
         this.cpf = cpf;
-        this.age = age;
-        this.gender = gender;
-        this.phoneNumber = phoneNumber;
         this.socialName = socialName;
-        this.address = address;
         this.weight = weight;
         this.height = height;
         this.birthDate = birthDate;
@@ -65,14 +66,6 @@ public class Patient {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Long getCpf() {
         return cpf;
     }
@@ -81,44 +74,12 @@ public class Patient {
         this.cpf = cpf;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public char getGender() {
-        return gender;
-    }
-
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public String getSocialName() {
         return socialName;
     }
 
     public void setSocialName(String socialName) {
         this.socialName = socialName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public LocalDate getBirthDate() {

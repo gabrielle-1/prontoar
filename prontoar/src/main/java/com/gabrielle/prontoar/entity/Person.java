@@ -1,30 +1,28 @@
 package com.gabrielle.prontoar.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import javax.persistence.MappedSuperclass;
 
-import javax.persistence.Column;
-import java.time.LocalDate;
-
-@NoArgsConstructor
-public class Person {
+@MappedSuperclass
+public abstract class Person{
 
     protected String name;
-    protected String cpf;
-    protected int age;
-    protected LocalDate birthDate;
-    protected char gender;
-    protected String phoneNumber;
     protected String email;
+    protected String phoneNumber;
+    protected int age;
+    protected String address;
+    protected char gender;
 
-    public Person(String name, String cpf, int age, String birthDate, char gender, String phoneNumber, String email) {
+    public Person(String name, String email, String phoneNumber, int age, String address, char gender) {
         this.name = name;
-        this.cpf = cpf;
-        this.age = age;
-        this.gender = gender;
-        this.phoneNumber = phoneNumber;
         this.email = email;
-        // this.birthDate = LocalDate.parse(birthDate);
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+        this.address = address;
+        this.gender = gender;
+    }
+
+    public Person(){
+
     }
 
     public String getName() {
@@ -35,28 +33,12 @@ public class Person {
         this.name = name;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
     }
 
     public char getGender() {
@@ -82,4 +64,14 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    
 }
