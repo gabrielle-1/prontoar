@@ -30,9 +30,9 @@ public class PatientService {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    public Patient findByCpf(Long cpf) {
-        Optional<Patient> obj = patientRepository.findByCpf(cpf);
-        return obj.get();
+    public ResponseEntity<Patient> findByCpf(String cpf) {
+        return this.patientRepository.findByCpf(cpf)
+                .map(patient -> ResponseEntity.ok().body(patient)).orElse(ResponseEntity.notFound().build());
     }
 
     public ResponseEntity<Patient> updateById(Patient patient, Long id) {

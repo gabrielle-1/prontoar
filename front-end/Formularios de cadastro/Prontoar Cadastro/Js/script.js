@@ -112,6 +112,7 @@ function findPatient(){
 
   if(strCpf){
     $.ajax({
+      // http://localhost:8080/api/v1/patients/?cpf=99200293948      
       url: 'http://localhost:8080/api/v1/patients/find/' + strCpf,
       method: 'GET',      
       data: JSON.stringify(dados),
