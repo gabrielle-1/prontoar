@@ -22,6 +22,7 @@ function saveDoctor(){
   const endereco = document.getElementById("endereco");
   const crm = document.getElementById("crm");
   const confirmCrm = document.getElementById("confirmcrm");
+  const email = document.getElementById("email");
 
   let generoElement = document.getElementsByName('gender');
   let genero = '';
@@ -38,14 +39,15 @@ function saveDoctor(){
 
   let nomeCompleto = nome.value + " " + sobrenome.value;
 
-  //criação dos dados em um Json
+  // Criação dos dados em um Json
   const values  = {
     "crm": crm.value,    
     "name": nomeCompleto,    
     "age": idade.value,
     "gender": genero.value,
     "phoneNumber": tel.value,
-    "address" : endereco.value
+    "address" : endereco.value,
+    "email": email.value
   };
 
   if(values){
@@ -60,7 +62,8 @@ function savePatient(){
   const tel = document.getElementById("number");
   const idade = document.getElementById("idade");
   const endereco = document.getElementById("endereco");
-  const date = document.getElementById("data");
+  let date = document.getElementById("data").value;
+  const email = document.getElementById("email");
 
   const cpf = document.getElementById("cpf").value;
   var strCpf = cpf.replace("-", "").replace(".", "").replace(".", "");
@@ -86,7 +89,11 @@ function savePatient(){
     return false;
   }
 
-  //criação dos dados em um Json
+  // Formatando a data
+  date = date.replace("-", "").replace("-", "");
+  date = parseInt(date);
+
+  // Criação dos dados em um Json
   const values  = {
     "name": nomeCompleto,  
     "cpf": strCpf,     
@@ -97,7 +104,8 @@ function savePatient(){
     "phoneNumber": tel.value,
     "socialName": social.value,
     "address": endereco.value,
-    "date": date.value
+    "birthDate": date,
+    "email": email.value
   };
 
   if(values){
