@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <title>Cadastro</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-image">
+        <img src="./assets/img/undraw_doctor_kw-5-l.svg" alt="" srcset="" />
+      </div>
+      <div class="form">
+        <form onsubmit="return false">
+          <div class="form-header">
+            <div class="title">
+              <h1>Cadastro</h1>
+            </div>
+            <div class="log-in-button">
+              <button><a href="#">Confirmar</a></button>
+            </div>
+          </div>
+          <form action="">
+            <div class="input_group">
+              <div class="input-box">
+                <label for="first-name"> Primeiro Nome </label>
+                <input
+                  id="first-name"
+                  type="text"
+                  class="nome1"
+                  name="first-name"
+                  placeholder="Digite o seu primeiro nome"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label for="last-name"> Sobrenome </label>
+                <input
+                  id="last-name"
+                  type="text"
+                  class="nome2"
+                  name="last-name"
+                  placeholder="Digite o seu sobrenome"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="social-name"> Nome Social(caso tenha) </label>
+                <input
+                  id="social-name"
+                  type="text"
+                  class="nomeExtra"
+                  name="social-name"
+                  placeholder="Digite o seu nome"
+                />
+              </div>              
+              <div class="input-box">
+                <label for="number"> Celular </label>
+                <input
+                  id="number"
+                  type="tel"
+                  class="telefone"
+                  name="number"
+                  placeholder="(xx) xxxxx-xxxx"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="cpf"> CPF do paciente </label>
+                <input
+                  id="cpf"
+                  class="chave"
+                  name="cpf"
+                  placeholder="Digite seu cpf"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="confirmcpf"> Confirme CPF </label>
+                <input
+                  id="confirmcpf"
+                  class="chave2"
+                  name="confirmcpf"
+                  placeholder="Digite seu cpf"
+                  required
+                />
+              </div>              
+              <div class="input-box">
+                <label for="idade"> Idade </label>
+                <input
+                  id="idade"
+                  type="text"
+                  class="idade"
+                  name="idade"
+                  placeholder="Digite sua idade"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="dataNascimento"> Data de Nascimento </label>
+                <input
+                  id="data"
+                  type="date"
+                  class="data"
+                  name="data"
+                  placeholder="Digite sua data de nascimento"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="peso"> Peso </label>
+                <input
+                  id="peso"
+                  type="text"
+                  class="peso"
+                  name="peso"
+                  placeholder="Digite seu peso"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="altura"> Altura </label>
+                <input
+                  id="altura"
+                  type="text"
+                  class="altura"
+                  name="altura"
+                  placeholder="Digite sua altura"
+                  required
+                />
+              </div>            
+              <div class="input-box">
+                <label for="endereco"> Endereço </label>
+                <input
+                  id="endereco"
+                  type="text"
+                  class="endereco"
+                  name="endereco"
+                  placeholder="Digite seu endereço"
+                  required
+                />
+              </div>
+            </div>
+          
+          <div class="gender-inputs">
+            <div class="gender-titles">
+              <h6>Gêneros</h6>
+            </div>
+
+            <div class="gender-groups">
+              <div class="gender-input">
+                <input type="radio" name="gender" id="female" value="F" />
+                <label for="female">Feminino</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="male" value="M" />
+                <label for="male">Masculino</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="others" value="N" />
+                <label for="others">Outros</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="none" />
+                <label for="None">Prefiro não informar</label>
+              </div>
+            </div>
+          </div>          
+          <div class="continue-button">
+            <button type="submit" onclick="savePatient()">Continuar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./Js/script.js"></script>    
+    <script>$("#number").mask("(00) 00000-0000");</script>
+    <script>$("#cpf").mask("999.999.999-99");</script>
+    <script>$("#confirmcpf").mask("999.999.999-99");</script>
+    <script>$("#idade").mask("00");</script>
+    <script>$("#peso").mask("00.0 Kg");</script>
+    <script>$("#altura").mask("200 CM");</script>
+  </body>
+</html>

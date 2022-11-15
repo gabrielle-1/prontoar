@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/TelaProntuario.css">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <title>Tela de diagnóstico</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-image">
+        <img src="./assets/img/undraw_doctor_kw-5-l.svg" alt="" srcset="">
+      </div>
+     
+      <div class="form">
+        <form onsubmit="return false">
+          <div class="form-header">
+            <div class="title">
+              <h1>Diagnóstico do paciente</h1>
+            </div>
+          </div>
+
+          <div class="input_group">
+            <div class="input-box">
+              <label for="first-name"> Pressão Arterial </label>
+              <input
+                id="first-name"
+                type="number"
+                name="first-name"
+                placeholder="Digite a pressão arterial"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label for="crm"> Queixas </label>
+              <input
+                id="crm"
+                type="text"
+                name="queixas"
+                placeholder="Digite as queixas"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label for="crm"> Data da consulta / Hora</label>
+              <input
+                id="crm"
+                type="datetime-local"
+                name="data"
+                required
+              />
+            </div>
+            
+            <div class="input-box">
+              <label for="confirmcrm"> Registro do paciente - ID</label>
+              <input
+                id="confirmcrm"
+                type="number"
+                name="sinais"
+                placeholder="Digite registro - ID"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label for="confirmcrm"> Temperatura </label>
+              <input
+                id="confirmcrm"
+                type="number"
+                name="sinais"
+                placeholder="Digite a temperatura"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+                <label for="confirmcrm"> Pescrições Medicas </label>
+                <input
+                  id="confirmcrm"
+                  type="text"
+                  name="prescrições"
+                  placeholder="Digite as prescrições"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label for="confirmcrm"> Ocorrências  </label>
+                <input
+                  id="confirmcrm"
+                  type="text"
+                  name="prescrições"
+                  placeholder="Digite a ocorrência"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label for="crm"> Doenças presentes</label>
+                <input
+                  id="crm"
+                  type="text"
+                  name="queixas"
+                  placeholder="Digite doenças presente"
+                />
+              </div>
+
+          </div>
+
+          <div class="gender-inputs">
+            <form onsubmit="return false">
+            <div class="gender-titles">
+              <h6>Estado geral</h6>
+            </div>
+
+            <div class="gender-groups">
+              <div class="gender-input">
+                <input type="radio" name="gender" id="sim" value="S" />
+                <label for="sim">Regular</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="nao" value="N" />
+                <label for="nao">Comprometido</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="others" value="E" />
+                <label for="others">Grave</label>
+              </div>
+
+            </div>
+            </form>
+            
+            <br>
+
+          <div class="gender-inputs">
+             <form onsubmit="return false">
+            <div class="gender-titles">
+              <h6>Portador de doenças transmissível</h6>
+            </div>
+
+            <div class="gender-groups">
+              <div class="gender-input">
+                <input type="radio" name="gender" id="sim" value="S" />
+                <label for="sim">Sim</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="nao" value="N" />
+                <label for="nao">Não</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="others" value="N" />
+                <label for="others">Não sei informar</label>
+              </div>
+            </div>
+             </form>
+          
+             <br>
+
+
+
+          <div class="gender-inputs">
+            <form onsubmit="return false">
+            <div class="gender-titles">
+              <h6>Portador de deficiência</h6>
+            </div>
+
+            <div class="gender-groups">
+              <div class="gender-input">
+                <input type="radio" name="gender" id="sim" value="S" />
+                <label for="sim">Sim</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="nao" value="N" />
+                <label for="nao">Não</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" name="gender" id="others" value="E" />
+                <label for="others">Talvez</label>
+              </div>
+            </div>
+            </form>
+            
+            <br>
+
+            <div class="input-box">
+            <div class="log-in-button">
+            <button>
+                <a href="TelaMenuMedico.html">
+                    Voltar
+                </a>
+            </button>
+            <br>
+            <button type="submit" onclick="saveDoctor()">
+            <a href="TelaFimMedico.html">
+              Salvar
+            </a>
+            </button>
+            </div>
+            </div>
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
