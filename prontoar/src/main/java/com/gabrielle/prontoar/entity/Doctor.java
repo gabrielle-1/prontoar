@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @ToString
 @Entity(name = "api_doctor")
-public class Doctor extends Person{
+public class Doctor extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,10 @@ public class Doctor extends Person{
     public Doctor() {
     }
 
-    public Doctor(String name, String email, String phoneNumber, int age, String address, char gender, Long id,
+    public Doctor(String name, String email, String password, String phoneNumber, int age, String address, char gender,
+            Long id,
             String crm) {
-        super(name, email, phoneNumber, age, address, gender);
+        super(name, email, password, phoneNumber, age, address, gender);
         this.id = id;
         this.crm = crm;
     }
@@ -28,7 +29,7 @@ public class Doctor extends Person{
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }

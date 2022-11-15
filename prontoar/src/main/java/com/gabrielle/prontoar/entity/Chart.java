@@ -13,15 +13,33 @@ public class Chart {
 
     @Column(nullable = false)
     private Long idPatient;
-    
+
     @Column(nullable = false)
     private Long idDoctor;
 
-    public Chart(Long id, Long idPatient, Long idDoctor) {
-        this.id = id;
-        this.idPatient = idPatient;
-        this.idDoctor = idDoctor;
-    }
+    private double bloodPressure;
+
+    private double clinicalSigns;
+
+    private String prescriptions;
+
+    private String allergy;
+
+    private String diabetes;
+
+    private String medication;
+
+    private String diseaseProgresses;
+
+    private String diseaseGifts;
+
+    private String previousSurgeries;
+
+    // public Chart(Long id, Long idPatient, Long idDoctor) {
+    // this.id = id;
+    // this.idPatient = idPatient;
+    // this.idDoctor = idDoctor;
+    // }
 
     public Chart() {
     }
