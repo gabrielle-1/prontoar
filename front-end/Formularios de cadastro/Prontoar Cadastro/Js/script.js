@@ -23,6 +23,8 @@ function saveDoctor(){
   const crm = document.getElementById("crm");
   const confirmCrm = document.getElementById("confirmcrm");
   const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const confirmpassword = document.getElementById("confirmpassword");
 
   let generoElement = document.getElementsByName('gender');
   let genero = '';
@@ -37,6 +39,11 @@ function saveDoctor(){
     return false;
   }
 
+  if(password.value != confirmpassword.value){    
+    alert("Senhas estão diferentes!");
+    return false;
+  }
+
   let nomeCompleto = nome.value + " " + sobrenome.value;
 
   // Criação dos dados em um Json
@@ -47,7 +54,8 @@ function saveDoctor(){
     "gender": genero.value,
     "phoneNumber": tel.value,
     "address" : endereco.value,
-    "email": email.value
+    "email": email.value,
+    "password": password.value
   };
 
   if(values){
@@ -64,6 +72,8 @@ function savePatient(){
   const endereco = document.getElementById("endereco");
   let date = document.getElementById("data").value;
   const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const confirmpassword = document.getElementById("confirmpassword");
 
   const cpf = document.getElementById("cpf").value;
   var strCpf = cpf.replace("-", "").replace(".", "").replace(".", "");
@@ -88,6 +98,11 @@ function savePatient(){
     alert("CPFs estão diferentes!");
     return false;
   }
+  
+  if(password.value != confirmpassword.value){    
+    alert("Senhas estão diferentes!");
+    return false;
+  }
 
   // Formatando a data
   date = date.replace("-", "").replace("-", "");
@@ -105,7 +120,8 @@ function savePatient(){
     "socialName": social.value,
     "address": endereco.value,
     "birthDate": date,
-    "email": email.value
+    "email": email.value,
+    "password": password.value
   };
 
   if(values){
