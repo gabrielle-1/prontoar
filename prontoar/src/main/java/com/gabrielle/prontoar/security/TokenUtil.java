@@ -6,7 +6,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import com.gabrielle.prontoar.entity.Doctor;
 
@@ -25,7 +25,7 @@ public class TokenUtil {
     private static final String SECRET_KEY = "MyK3tt0osjSLo0@dk!SM2L@4fRc52DlP";
     private static final String EMISSOR = "Gabs";
 
-    private static String createToken(Doctor doctor) {
+    public static String createToken(Doctor doctor) {
         Key secretKey = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
         String token = Jwts.builder()
                 .setSubject(doctor.getName())
@@ -49,7 +49,7 @@ public class TokenUtil {
         return doctorName != null && doctorName.length() > 0;
     }
 
-    public static UsernamePasswordAuthenticationToken validate(HttpServletRequest request) {
+    public static Authentication validate(HttpServletRequest request) {
         String token = request.getHeader(HEADER);
         token = token.replace(PREFIX, "");
 

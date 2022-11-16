@@ -2,6 +2,9 @@ package com.gabrielle.prontoar.service;
 
 import com.gabrielle.prontoar.entity.Doctor;
 import com.gabrielle.prontoar.repository.DoctorRepository;
+import com.gabrielle.prontoar.security.Token;
+import com.gabrielle.prontoar.security.TokenUtil;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -60,6 +63,17 @@ public class DoctorService {
         String password = this.doctorRepository.findById(doctor.getId()).get().getPassword();
         Boolean valid = passwordEncoder.matches(doctor.getPassword(), password);
         return valid;
+    }
+
+    public Token generateToken(Doctor doctor) {
+        Doctor doctorFind = doctorRepository.findByEmail(doctor.getEmail());
+        if(doctorFind != null){
+            Boolean valid = passwordEncoder.matches(doctor.getPassword(), doctorFind.getPassword());
+            if(valid){
+                return new Token(TokenUtil.createToken(doctor));
+            }
+        }
+        return null;
     }
 
 }
