@@ -3,8 +3,6 @@ package com.gabrielle.prontoar.security;
 import lombok.Setter;
 import lombok.Getter;
 
-@Getter
-@Setter
 public class Token {
 
     private String token;
@@ -13,4 +11,13 @@ public class Token {
         super();
         this.token = token;
     }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
 }

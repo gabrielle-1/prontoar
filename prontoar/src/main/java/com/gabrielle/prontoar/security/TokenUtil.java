@@ -21,7 +21,6 @@ public class TokenUtil {
 
     private static final String HEADER = "Authorization";
     private static final String PREFIX = "Bearer ";
-    private static final long EXPIRATION = 12 * 60 * 60 * 1000;
     private static final String SECRET_KEY = "MyK3tt0osjSLo0@dk!SM2L@4fRc52DlP";
     private static final String EMISSOR = "Gabrielle";
 
@@ -30,15 +29,10 @@ public class TokenUtil {
         String token = Jwts.builder()
                 .setSubject(doctor.getName())
                 .setIssuer(EMISSOR)
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
                 .signWith(secretKey, SignatureAlgorithm.HS256)
                 .compact();
 
         return PREFIX + token;
-    }
-
-    private static boolean isExpierationValid(Date expiration) {
-        return expiration.after(new Date(System.currentTimeMillis()));
     }
 
     private static boolean isEmissorValid(String emissor) {
@@ -57,9 +51,8 @@ public class TokenUtil {
 
         String doctorName = jwsClaims.getBody().getSubject();
         String issuer = jwsClaims.getBody().getIssuer();
-        Date expira = jwsClaims.getBody().getExpiration();
 
-        if (isSubjectValid(doctorName) && isEmissorValid(issuer) && isExpierationValid(expira)) {
+        if (isSubjectValid(doctorName) && isEmissorValid(issuer)) {
             return new UsernamePasswordAuthenticationToken(doctorName, null, Collections.emptyList());
         }
 
