@@ -20,10 +20,10 @@ import io.jsonwebtoken.security.Keys;
 public class TokenUtil {
 
     private static final String HEADER = "Authorization";
-    private static final String PREFIX = "Bearer";
+    private static final String PREFIX = "Bearer ";
     private static final long EXPIRATION = 12 * 60 * 60 * 1000;
     private static final String SECRET_KEY = "MyK3tt0osjSLo0@dk!SM2L@4fRc52DlP";
-    private static final String EMISSOR = "Gabs";
+    private static final String EMISSOR = "Gabrielle";
 
     public static String createToken(Doctor doctor) {
         Key secretKey = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());

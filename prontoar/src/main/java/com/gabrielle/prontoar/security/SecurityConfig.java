@@ -16,6 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/v1/doctors/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/v1/doctors").permitAll()
                 .anyRequest().authenticated().and().cors();
 
         httpSecurity.addFilterBefore(new SecurityFilter(), UsernamePasswordAuthenticationFilter.class);
