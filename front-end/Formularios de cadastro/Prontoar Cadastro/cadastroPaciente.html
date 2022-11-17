@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/cadastroPaciente.css" />
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png" />
     <script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -24,7 +24,7 @@
         <form onsubmit="return false">
           <div class="form-header">
             <div class="title">
-              <h1>Cadastro</h1>
+              <h1>Cadastro paciente</h1>
             </div>
           </div>
           <form action="">
@@ -126,26 +126,6 @@
                 />
               </div>
               <div class="input-box">
-                <label for="password"> Senha </label>
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  placeholder="Digite a sua senha"
-                  required
-                />
-              </div>
-              <div class="input-box">
-                <label for="password"> Confirmar Senha </label>
-                <input
-                  id="password"
-                  type="password"
-                  name="confirmpassword"
-                  placeholder="Digite a sua senha novamente"
-                  required
-                />
-              </div>
-              <div class="input-box">
                 <label for="peso"> Peso </label>
                 <input
                   id="peso"
@@ -208,7 +188,11 @@
             </div>
           </div>          
           <div class="continue-button">
-            <button type="submit" onclick="savePatient()">Continuar</button>
+            <button type="submit" onclick="savePatient()">
+              <a href="TelaFimAdmin.html">
+              salvar
+            </a>
+            </button>
           </div>
         </form>
       </div>
