@@ -56,5 +56,5 @@ public class DoctorController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-
+    
 }

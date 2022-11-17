@@ -2,23 +2,19 @@ package com.gabrielle.prontoar.service;
 
 import com.gabrielle.prontoar.entity.Patient;
 import com.gabrielle.prontoar.repository.PatientRepository;
+import lombok.AllArgsConstructor;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class PatientService {
 
     private PatientRepository patientRepository;
-    private PasswordEncoder passwordEncoder;
-
-    public PatientService(PatientRepository patientRepository) {
-        this.patientRepository = patientRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder();
-    }
 
     public Patient createPatient(Patient patient) {
         return this.patientRepository.save(patient);
@@ -61,9 +57,4 @@ public class PatientService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
-    public boolean validPassword(Patient patient) {
-        String password = this.patientRepository.findById(patient.getId()).get().getPassword();
-        Boolean valid = passwordEncoder.matches(patient.getPassword(), password);
-        return valid;
-    }
 }

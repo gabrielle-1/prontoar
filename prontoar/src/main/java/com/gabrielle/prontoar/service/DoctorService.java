@@ -5,31 +5,23 @@ import com.gabrielle.prontoar.repository.DoctorRepository;
 import com.gabrielle.prontoar.security.Token;
 import com.gabrielle.prontoar.security.TokenUtil;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class DoctorService {
 
     private DoctorRepository doctorRepository;
-    private PasswordEncoder passwordEncoder;
-
-    public DoctorService(DoctorRepository doctorRepository) {
-        this.doctorRepository = doctorRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder();
-    }
 
     public List<Doctor> listDoctors() {
         return this.doctorRepository.findAll();
     }
 
     public Doctor createDoctor(Doctor doctor) {
-        String encoder = this.passwordEncoder.encode(doctor.getPassword());
-        doctor.setPassword(encoder);
         return this.doctorRepository.save(doctor);
     }
 

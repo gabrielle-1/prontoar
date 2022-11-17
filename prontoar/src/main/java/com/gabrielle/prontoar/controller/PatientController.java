@@ -52,14 +52,4 @@ public class PatientController {
     public ResponseEntity<Object> deletePatientByID(@PathVariable(value = "id") Long id) {
         return this.patientService.deleteById(id);
     }
-
-    @PostMapping("/login")
-    public ResponseEntity<Patient> login(@RequestBody Patient patient) {
-        Boolean validPassword = patientService.validPassword(patient);
-        if (validPassword) {
-            return ResponseEntity.status(200).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-    }
 }
