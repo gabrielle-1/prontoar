@@ -18,10 +18,8 @@ public class Doctor extends Person{
     public Doctor() {
     }
 
-    public Doctor(String name, String email, String phoneNumber, int age, String address, char gender, Long id,
-            String crm) {
-        super(name, email, phoneNumber, age, address, gender);
-        this.id = id;
+    public Doctor(String name, String email, String password, String phoneNumber, int age, String address, char gender, String crm) {
+        super(name, email, password, phoneNumber, age, address, gender);
         this.crm = crm;
     }
 

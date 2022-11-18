@@ -7,14 +7,16 @@ public abstract class Person{
 
     protected String name;
     protected String email;
+    protected String password;
     protected String phoneNumber;
     protected int age;
     protected String address;
     protected char gender;
 
-    public Person(String name, String email, String phoneNumber, int age, String address, char gender) {
+    public Person(String name, String email, String password, String phoneNumber, int age, String address, char gender) {
         this.name = name;
         this.email = email;
+        this.password = password;
         this.phoneNumber = phoneNumber;
         this.age = age;
         this.address = address;
@@ -63,6 +65,14 @@ public abstract class Person{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getAddress() {

@@ -51,21 +51,4 @@ public class DoctorService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
-    public boolean validPassword(Doctor doctor) {
-        String password = this.doctorRepository.findById(doctor.getId()).get().getPassword();
-        Boolean valid = passwordEncoder.matches(doctor.getPassword(), password);
-        return valid;
-    }
-
-    public Token generateToken(Doctor doctor) {
-        Doctor doctorFind = doctorRepository.findByEmail(doctor.getEmail());
-        if(doctorFind != null){
-            Boolean valid = passwordEncoder.matches(doctor.getPassword(), doctorFind.getPassword());
-            if(valid){
-                return new Token(TokenUtil.createToken(doctor));
-            }
-        }
-        return null;
-    }
-
 }

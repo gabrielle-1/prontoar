@@ -3,7 +3,6 @@ package com.gabrielle.prontoar.service;
 import com.gabrielle.prontoar.entity.Patient;
 import com.gabrielle.prontoar.repository.PatientRepository;
 import lombok.AllArgsConstructor;
-import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

@@ -2,19 +2,17 @@ package com.gabrielle.prontoar.security;
 
 import java.security.Key;
 import java.util.Collections;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.security.core.Authentication;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import com.gabrielle.prontoar.entity.Doctor;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import com.gabrielle.prontoar.entity.Doctor;
 
 // Methods to generate and validate token
 public class TokenUtil {
