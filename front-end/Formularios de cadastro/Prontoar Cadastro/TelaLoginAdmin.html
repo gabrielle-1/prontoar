@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="../Prontoar Cadastro/Js/login.js" defer></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <link rel="stylesheet" href="./assets/css/TelaLoginAdmin.css">
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png" />
     <title>Tela de Login Admin</title>
@@ -16,7 +22,7 @@
         </div>
         
         <div class="form">
-          <form action="#">
+          <form onsubmit="return false">
             <div class="form-header">
               <div class="title">
                 <h1>Prontoar</h1>
@@ -32,7 +38,7 @@
             </div>
                 <div class="input-box">
                   <label for="last-name"> Senha </label>
-                  <input id="password" type="text" placeholder="Digite sua senha de acesso..." required />
+                  <input id="password" type="password" placeholder="Digite sua senha de acesso..." required />
                 </div>
                 
                 <div class="log-in-button">
@@ -46,13 +52,12 @@
                     </div>
 
                     <div>
-                      <button id="button">
-                        <a href="TelaInicialAdmin.html">
-                          Acessar
-                        </a> 
+                      <button id="button" type="submit" onclick="loginAdmin()">
+                          Acessar                       
                       </button>
                     </div>
         </div>
     </div>
+    <script src="./Js/script.js"></script>   
   </body>
 </html>

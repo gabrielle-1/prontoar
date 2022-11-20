@@ -1,16 +1,21 @@
-function save(dados, url, mensagem){
+function save(dados, url, mensagem, tipo){
   $.ajax({
     url: 'http://localhost:8080/api/v1/' + url,
     method: 'POST',      
     data: JSON.stringify(dados),
     contentType: 'application/json; charset-utf-8',
     success: function(response) {
-        console.log(response);  
-        alert(mensagem);  
-        document.location.reload(true);    
+      alert(mensagem); 
+      console.log(response); 
+      if(tipo == 1){
+        document.location = "TelaFimAdmin.html";
+      }else if(tipo == 2){
+        document.location = "TelaInicialMedico.html";
+      }
     }
   }).fail(function(xhr, status, errorThrown) {
-        console.log(xhr)          
+        console.log(xhr)        
+        return false;  
     });    
 }
 
@@ -51,7 +56,7 @@ function saveDoctor(){
   };
 
   if(values){
-    save(values, "doctors", "Médico salvo com sucesso!");
+    save(values, "doctors", "Médico salvo com sucesso!", 2);
   }
 }
 
@@ -109,30 +114,66 @@ function savePatient(){
   };
 
   if(values){
-    save(values, "patients", "Paciente salvo com sucesso!");
+    save(values, "patients", "Paciente salvo com sucesso!", 1);
   }
 
 }
 
 function findPatient(){
+  
   const cpf = document.getElementById("cpf").value;
   var strCpf = cpf.replace("-", "").replace(".", "").replace(".", "");
 
   if(strCpf){
-    $.ajax({
-      // http://localhost:8080/api/v1/patients/?cpf=99200293948      
-      url: 'http://localhost:8080/api/v1/patients/find/' + strCpf,
-      method: 'GET',      
-      data: JSON.stringify(dados),
+    $.ajax({    
+      url: 'http://localhost:8080/api/v1/patients=?' + strCpf,
+      method: 'GET',            
       contentType: 'application/json; charset-utf-8',
       success: function(response) {
           console.log(response);  
           alert(mensagem);  
-          document.location.reload(true);    
+          document.location = "TelaMenuMedico.html";
       }
     }).fail(function(xhr, status, errorThrown) {
           console.log(xhr)          
       });   
   }
   
+}
+
+// Admin
+function loginAdmin(){  
+  const login = document.getElementById("login").value;
+  const password = document.getElementById("password").value;
+
+  if(login == '' || password == ''){
+    alert("Login ou senha não podem estar vazios.");
+    return false;
+  }
+  
+  // Criação dos dados em um Json
+  const values  = {
+    "user": login,  
+    "password": password
+  };
+  
+  $.ajax({
+    url: 'http://localhost:8080/api/v1/admin/login',
+    method: 'POST',      
+    data: JSON.stringify(values),
+    contentType: 'application/json; charset-utf-8',
+    success: function(response) {   
+      if(response){
+        // Login correto!
+        document.location = "TelaInicialAdmin.html";
+      }      
+    }
+  }).fail(function(xhr, status, errorThrown) {
+        console.log(xhr.status);
+        if(xhr.status == 401){
+          alert("Login ou senha incorretos. Tente novamente!");          
+          return false;
+        }      
+        return false;  
+  }); 
 }
