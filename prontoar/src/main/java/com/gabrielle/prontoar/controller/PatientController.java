@@ -36,11 +36,18 @@ public class PatientController {
         return this.patientService.findById(id);
     }
 
-    @GetMapping("find")
+    @GetMapping("/find/{cpf}")
     @ResponseBody
-    public ResponseEntity<List<Patient>> getPatientByCPF(@RequestParam("cpf") String cpf) {
-        List<Patient> returnValue = this.patientService.findByCpf(cpf);
-        return new ResponseEntity<List<Patient>>(returnValue, HttpStatus.OK);
+    public ResponseEntity<Patient> getPatientByCPF(@PathVariable Long cpf) {
+        Patient returnValue = this.patientService.findByCpf(cpf);
+        if (returnValue != null) {
+            return new ResponseEntity<Patient>(returnValue, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Patient>(returnValue, HttpStatus.OK).notFound().build();
+        }
+
+        // List<Patient> returnValue = this.patientService.findByCpf(cpf);
+        // return new ResponseEntity<List<Patient>>(returnValue, HttpStatus.OK);
         // .map(patient ->
         // ResponseEntity.ok().body(patient)).orElse(ResponseEntity.notFound().build()
     }

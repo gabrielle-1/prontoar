@@ -19,7 +19,7 @@
       <div class="form-image">
         <img src="./assets/img/undraw_doctor_kw-5-l.svg" alt="" srcset="">
       </div>
-     
+      <input id="codigo" value="" style="display: none" type="text"/>
       <div class="form">
         <form onsubmit="return false">
           <div class="form-header">
@@ -30,20 +30,20 @@
 
           <div class="input_group">
             <div class="input-box">
-              <label for="first-name"> Pressão Arterial </label>
+              <label for="pressaoArterial"> Pressão Arterial </label>
               <input
-                id="first-name"
+                id="pressaoArterial"
                 type="number"
-                name="first-name"
+                name="pressaoArterial"
                 placeholder="Digite a pressão arterial"
                 required
               />
             </div>
 
             <div class="input-box">
-              <label for="crm"> Queixas </label>
+              <label for="queixas"> Queixas </label>
               <input
-                id="crm"
+                id="queixas"
                 type="text"
                 name="queixas"
                 placeholder="Digite as queixas"
@@ -52,9 +52,9 @@
             </div>
 
             <div class="input-box">
-              <label for="crm"> Data da consulta / Hora</label>
+              <label for="data"> Data da consulta / Hora</label>
               <input
-                id="crm"
+                id="data"
                 type="datetime-local"
                 name="data"
                 required
@@ -62,55 +62,55 @@
             </div>
             
             <div class="input-box">
-              <label for="confirmcrm"> Registro do paciente - ID</label>
+              <label for="idPaciente"> Registro do paciente - ID</label>
               <input
-                id="confirmcrm"
+                id="idPaciente"
                 type="number"
-                name="sinais"
+                name="idPaciente"
                 placeholder="Digite registro - ID"
                 required
               />
             </div>
 
             <div class="input-box">
-              <label for="confirmcrm"> Temperatura </label>
+              <label for="temperatura"> Temperatura </label>
               <input
-                id="confirmcrm"
+                id="temperatura"
                 type="number"
-                name="sinais"
+                name="temperatura"
                 placeholder="Digite a temperatura"
                 required
               />
             </div>
 
             <div class="input-box">
-                <label for="confirmcrm"> Pescrições Medicas </label>
+                <label for="prescricao"> Pescrições Medicas </label>
                 <input
-                  id="confirmcrm"
+                  id="prescricao"
                   type="text"
-                  name="prescrições"
+                  name="prescricao"
                   placeholder="Digite as prescrições"
                   required
                 />
               </div>
 
               <div class="input-box">
-                <label for="confirmcrm"> Ocorrências  </label>
+                <label for="ocorrencias"> Ocorrências  </label>
                 <input
-                  id="confirmcrm"
+                  id="ocorrencias"
                   type="text"
-                  name="prescrições"
+                  name="ocorrencias"
                   placeholder="Digite a ocorrência"
                   required
                 />
               </div>
 
               <div class="input-box">
-                <label for="crm"> Doenças presentes</label>
+                <label for="doencas"> Doenças presentes</label>
                 <input
-                  id="crm"
+                  id="doencas"
                   type="text"
-                  name="queixas"
+                  name="doencas"
                   placeholder="Digite doenças presente"
                 />
               </div>
@@ -125,17 +125,17 @@
 
             <div class="gender-groups">
               <div class="gender-input">
-                <input type="radio" name="gender" id="sim" value="S" />
+                <input type="radio" name="estadoGeral" id="sim" value="regular" />
                 <label for="sim">Regular</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="nao" value="N" />
+                <input type="radio" name="estadoGeral" id="nao" value="comprometido" />
                 <label for="nao">Comprometido</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="others" value="E" />
+                <input type="radio" name="estadoGeral" id="others" value="grave" />
                 <label for="others">Grave</label>
               </div>
 
@@ -145,56 +145,53 @@
             <br>
 
           <div class="gender-inputs">
-             <form onsubmit="return false">
             <div class="gender-titles">
               <h6>Portador de doenças transmissível</h6>
             </div>
 
             <div class="gender-groups">
               <div class="gender-input">
-                <input type="radio" name="gender" id="sim" value="S" />
+                <input type="radio" name="ist" id="sim" value="sim" />
                 <label for="sim">Sim</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="nao" value="N" />
+                <input type="radio" name="ist" id="nao" value="nao" />
                 <label for="nao">Não</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="others" value="N" />
+                <input type="radio" name="ist" id="others" value="" />
                 <label for="others">Não sei informar</label>
               </div>
             </div>
-             </form>
+           
           
              <br>
 
 
 
           <div class="gender-inputs">
-            <form onsubmit="return false">
             <div class="gender-titles">
               <h6>Portador de deficiência</h6>
             </div>
 
             <div class="gender-groups">
               <div class="gender-input">
-                <input type="radio" name="gender" id="sim" value="S" />
+                <input type="radio" name="deficiencia" id="sim" value="sim" />
                 <label for="sim">Sim</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="nao" value="N" />
+                <input type="radio" name="gender" id="nao" value="nao" />
                 <label for="nao">Não</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="others" value="E" />
+                <input type="radio" name="gender" id="others" value="" />
                 <label for="others">Talvez</label>
               </div>
             </div>
-            </form>
             
             <br>
 
@@ -206,10 +203,8 @@
                 </a>
             </button>
             <br>
-            <button type="submit" onclick="saveDoctor()">
-            <a href="TelaFimMedico.html">
-              Salvar
-            </a>
+            <button type="submit" onclick="saveProntuario()">
+              Salvar            
             </button>
             </div>
             </div>
@@ -217,5 +212,13 @@
 
       </div>
     </div>
+    <script src="./Js/script.js"></script>
+    <script>
+      $(document).ready(function (){
+        const urlParams = new URLSearchParams(location.search);
+        const codigo = urlParams.get('paciente');
+        document.getElementById("codigo").value = codigo;        
+      });
+    </script>
   </body>
 </html>

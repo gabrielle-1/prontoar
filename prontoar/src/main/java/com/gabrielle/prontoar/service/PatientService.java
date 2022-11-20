@@ -29,7 +29,7 @@ public class PatientService {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    public List<Patient> findByCpf(String cpf) {
+    public Patient findByCpf(Long cpf) {
         return this.patientRepository.findByCpf(cpf);
     }
 
