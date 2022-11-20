@@ -12,7 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @ToString
 @Entity(name = "api_patient")
 @AllArgsConstructor
-public class Patient extends Person{
+public class Patient extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,10 +35,11 @@ public class Patient extends Person{
 
     public Patient() {
     }
-    
-    public Patient(String name, String email, String phoneNumber, int age, String address, char gender, Long cpf,
+
+    public Patient(String name, String email, String password, String phoneNumber, int age, String address, char gender,
+            Long cpf,
             String socialName, double weight, double height, LocalDate birthDate) {
-        super(name, email, phoneNumber, age, address, gender);
+        super(name, email, password, phoneNumber, age, address, gender);
         this.cpf = cpf;
         this.socialName = socialName;
         this.weight = weight;

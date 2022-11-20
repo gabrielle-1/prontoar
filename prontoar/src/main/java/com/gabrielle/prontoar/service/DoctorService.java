@@ -2,8 +2,6 @@ package com.gabrielle.prontoar.service;
 
 import com.gabrielle.prontoar.entity.Doctor;
 import com.gabrielle.prontoar.repository.DoctorRepository;
-import com.gabrielle.prontoar.security.Token;
-import com.gabrielle.prontoar.security.TokenUtil;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

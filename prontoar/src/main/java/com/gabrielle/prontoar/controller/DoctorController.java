@@ -1,7 +1,6 @@
 package com.gabrielle.prontoar.controller;
 
 import com.gabrielle.prontoar.entity.Doctor;
-import com.gabrielle.prontoar.security.Token;
 import com.gabrielle.prontoar.service.DoctorService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -47,14 +46,4 @@ public class DoctorController {
         return this.doctorService.deleteDoctorById(id);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Token> login(@RequestBody Doctor doctor) {
-        Token token = doctorService.generateToken(doctor);
-        if (token != null) {
-            return ResponseEntity.ok(token);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-    }
-    
 }

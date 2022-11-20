@@ -24,10 +24,10 @@ public class AdminController {
     AdminService adminService;
 
     @PostMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestBody Admin admin) {
+    public ResponseEntity<Admin> login(@RequestBody Admin admin) {
         boolean validate = adminService.validate(admin);
         if (validate) {
-            return ResponseEntity.status(HttpStatus.OK).build();
+            return ResponseEntity.status(HttpStatus.OK).body(admin);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
