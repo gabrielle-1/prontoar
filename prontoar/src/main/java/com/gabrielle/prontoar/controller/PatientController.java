@@ -45,11 +45,6 @@ public class PatientController {
         } else {
             return new ResponseEntity<Patient>(returnValue, HttpStatus.OK).notFound().build();
         }
-
-        // List<Patient> returnValue = this.patientService.findByCpf(cpf);
-        // return new ResponseEntity<List<Patient>>(returnValue, HttpStatus.OK);
-        // .map(patient ->
-        // ResponseEntity.ok().body(patient)).orElse(ResponseEntity.notFound().build()
     }
 
     @PutMapping("/{id}")

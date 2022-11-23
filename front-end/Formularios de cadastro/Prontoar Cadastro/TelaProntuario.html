@@ -217,7 +217,9 @@
       $(document).ready(function (){
         const urlParams = new URLSearchParams(location.search);
         const codigo = urlParams.get('paciente');
-        document.getElementById("codigo").value = codigo;        
+        document.getElementById("codigo").value = codigo;
+
+        verificaProtuarioExistente(codigo);
       });
     </script>
   </body>

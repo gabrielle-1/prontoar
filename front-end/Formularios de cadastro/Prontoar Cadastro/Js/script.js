@@ -252,3 +252,22 @@ function saveProntuario(){
   }
 
 }
+
+function verificaProtuarioExistente(codigo){
+  if(codigo){
+    $.ajax({          
+      url: 'http://localhost:8080/api/v1/charts/patient/' + codigo,
+      method: 'GET',            
+      contentType: 'application/json; charset-utf-8',
+      success: function(response) {
+          
+      }
+    }).fail(function(xhr, status, errorThrown) {
+          console.log(xhr.status);
+          if(xhr.status == 404){
+           
+            return false;
+          }
+      });   
+  }
+}

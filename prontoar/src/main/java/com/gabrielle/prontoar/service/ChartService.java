@@ -21,5 +21,8 @@ public class ChartService {
         return this.chartRepository.save(chart);
     }
 
+    public Chart findPatientById(Long id){
+        return this.chartRepository.findPatientById(id);
+    }
 
 }
