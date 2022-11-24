@@ -50,10 +50,10 @@ public class DoctorService {
     }
 
     public boolean validate(Doctor doctor) {
-        Boolean validPassword = doctor.getPassword().equals(doctorRepository.);
-        Boolean validUser = doctor.getUser().equals(USER);
+        Doctor doctorByEmail = doctorRepository.findByEmail(doctor.getEmail());
+        Doctor doctorByCrm = doctorRepository.findByCrm(doctor.getCrm());
 
-        if (validPassword && validUser)
+        if(doctorByEmail != null && doctorByCrm != null)
             return true;
 
         return false;

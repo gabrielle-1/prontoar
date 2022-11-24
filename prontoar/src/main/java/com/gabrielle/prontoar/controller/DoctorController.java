@@ -3,7 +3,6 @@ package com.gabrielle.prontoar.controller;
 import com.gabrielle.prontoar.entity.Doctor;
 import com.gabrielle.prontoar.service.DoctorService;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,6 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("api/v1/doctors")
-@Slf4j
 @AllArgsConstructor
 public class DoctorController {
 
