@@ -24,23 +24,6 @@ function save(dados, url, mensagem, tipo){
     });    
 }
 
-function updateProntuario(dados, url, mensagem, tipo){
-  $.ajax({
-    url: 'http://localhost:8080/api/v1/' + url,
-    method: 'PUT',      
-    data: JSON.stringify(dados),
-    contentType: 'application/json; charset-utf-8',
-    success: function(response) {
-      alert(mensagem); 
-      console.log(response); 
-      location.reload();
-    }
-  }).fail(function(xhr, status, errorThrown) {
-        console.log(xhr)        
-        return false;  
-    });    
-}
-
 function saveDoctor(){
   const nome = document.getElementById("first-name");
   const sobrenome = document.getElementById("last-name");
@@ -210,8 +193,6 @@ function loginAdmin(){
 
 // Prontuário
 function saveProntuario(){
-  const codigo = document.getElementById("codigo").value;
-
   const pressaoArterial = document.getElementById("pressaoArterial");
   const queixas = document.getElementById("queixas");
   let date = document.getElementById("data").value;
@@ -266,65 +247,8 @@ function saveProntuario(){
     "deficit": deficiencia.value
   };
 
-  
-  if(codigo != "" && codigo != null){
-    verificaProtuarioExistente(codigo);
-    const codProntuario = document.getElementById("codigoProntuario").value;
-    updateProntuario(values, "charts/" + codProntuario, "Prontuário atualizado com sucesso!", 3);
-  }else{
+  if(values){
     save(values, "charts", "Prontuário salvo com sucesso!", 3);
   }
 
-
-}
-
-function verificaProtuarioExistente(codigo){
-  if(codigo){
-    $.ajax({          
-      url: 'http://localhost:8080/api/v1/charts/patient/' + codigo,
-      method: 'GET',            
-      contentType: 'application/json; charset-utf-8',
-      success: function(response) {
-          console.log(response);
-          if(response){
-            console.log(response.id);
-
-            document.getElementById("codigoProntuario").value = response.id;
-
-            document.getElementById("pressaoArterial").value = response.bloodPressure;
-            document.getElementById("queixas").value = response.illnesses;
-            document.getElementById("data").value = response.date;            
-            document.getElementById("temperatura").value = response.temperature;
-            document.getElementById("prescricao").value = response.prescription;
-            document.getElementById("ocorrencias").value = response.occurrences;
-            document.getElementById("doencas").value = response.plaint;          
-                         
-            // let estadoGeral = response.generalState;                       
-            
-            // let istElement = document.getElementsByName('ist');
-            // let ist = '';
-
-            // for(i = 0; i < istElement.length; i++) {
-            //   if(istElement[i].checked)
-            //   ist = istElement[i];
-            // }
-
-            // let deficienciaElement = document.getElementsByName('deficiencia');
-            // let deficiencia = '';
-
-            // for(i = 0; i < deficienciaElement.length; i++) {
-            //   if(deficienciaElement[i].checked)
-            //   deficiencia = deficienciaElement[i];
-            // }
-
-          }
-      }
-    }).fail(function(xhr, status, errorThrown) {
-          console.log(xhr.status);
-          if(xhr.status == 404){
-           
-            return false;
-          }
-      });   
-  }
 }

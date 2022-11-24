@@ -13,4 +13,8 @@ public class Admin {
         this.user = user;
         this.password = password;
     }
+
+    public Admin() {
+
+    }
 }

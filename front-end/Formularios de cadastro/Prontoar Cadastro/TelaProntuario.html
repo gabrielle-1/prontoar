@@ -20,7 +20,6 @@
         <img src="./assets/img/undraw_doctor_kw-5-l.svg" alt="" srcset="">
       </div>
       <input id="codigo" value="" style="display: none" type="text"/>
-      <input id="codigoProntuario" value="" style="display: none" type="text"/>
       <div class="form">
         <form onsubmit="return false">
           <div class="form-header">
@@ -218,9 +217,7 @@
       $(document).ready(function (){
         const urlParams = new URLSearchParams(location.search);
         const codigo = urlParams.get('paciente');
-        document.getElementById("codigo").value = codigo;
-
-        verificaProtuarioExistente(codigo);
+        document.getElementById("codigo").value = codigo;        
       });
     </script>
   </body>
