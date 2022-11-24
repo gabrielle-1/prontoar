@@ -49,4 +49,13 @@ public class DoctorService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
+    public boolean validate(Doctor doctor) {
+        Boolean validPassword = doctor.getPassword().equals(doctorRepository.);
+        Boolean validUser = doctor.getUser().equals(USER);
+
+        if (validPassword && validUser)
+            return true;
+
+        return false;
+    }
 }

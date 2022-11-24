@@ -46,4 +46,13 @@ public class DoctorController {
         return this.doctorService.deleteDoctorById(id);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<Doctor> login(@RequestBody Doctor doctor) {
+        boolean validate = doctorService.validate(doctor);
+        if (validate) {
+            return ResponseEntity.status(HttpStatus.OK).body(doctor);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
 }
