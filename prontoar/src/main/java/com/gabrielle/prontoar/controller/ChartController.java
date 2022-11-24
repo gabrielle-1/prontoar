@@ -31,10 +31,16 @@ public class ChartController {
         return this.chartService.createChart(chart);
     }
 
-    @GetMapping("/patient/{id}")
+    @PutMapping("/{id}")
+    public ResponseEntity<Chart> updateChartByID(@PathVariable(value = "id") Long id,
+            @RequestBody Chart chart) {
+        return this.chartService.updateById(chart, id);
+    }
+
+    @GetMapping("/patient/{idPatient}")
     @ResponseBody
-    public ResponseEntity<Chart> getPatientById(@PathVariable Long id) {
-        Chart returnValue = this.chartService.findPatientById(id);
+    public ResponseEntity<Chart> getPatientById(@PathVariable Long idPatient) {
+        Chart returnValue = this.chartService.findPatientById(idPatient);
         if (returnValue != null) {
             return new ResponseEntity<Chart>(returnValue, HttpStatus.OK);
         } else {

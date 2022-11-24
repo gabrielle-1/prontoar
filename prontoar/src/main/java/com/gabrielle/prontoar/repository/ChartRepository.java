@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ChartRepository extends JpaRepository<Chart, Long> {
-    Chart findPatientById(Long id);
+    Chart findPatientById(Long idPatient);
 }
