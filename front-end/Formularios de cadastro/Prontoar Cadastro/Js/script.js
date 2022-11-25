@@ -24,6 +24,7 @@ function save(dados, url, mensagem, tipo){
     });    
 }
 
+
 function saveDoctor(){
   const nome = document.getElementById("first-name");
   const sobrenome = document.getElementById("last-name");
@@ -152,43 +153,6 @@ function findPatient(){
       });   
   }
   
-}
-
-// Admin
-function loginAdmin(){  
-  const login = document.getElementById("login").value;
-  const password = document.getElementById("password").value;
-
-  if(login == '' || password == ''){
-    alert("Login ou senha não podem estar vazios.");
-    return false;
-  }
-  
-  // Criação dos dados em um Json
-  const values  = {
-    "user": login,  
-    "password": password
-  };
-  
-  $.ajax({
-    url: 'http://localhost:8080/api/v1/admin/login',
-    method: 'POST',      
-    data: JSON.stringify(values),
-    contentType: 'application/json; charset-utf-8',
-    success: function(response) {   
-      if(response){
-        // Login correto!
-        document.location = "TelaInicialAdmin.html";
-      }      
-    }
-  }).fail(function(xhr, status, errorThrown) {
-        console.log(xhr.status);
-        if(xhr.status == 401){
-          alert("Login ou senha incorretos. Tente novamente!");          
-          return false;
-        }      
-        return false;  
-  }); 
 }
 
 // Prontuário
