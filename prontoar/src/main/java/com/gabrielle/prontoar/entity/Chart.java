@@ -25,7 +25,7 @@ public class Chart {
 
     private String plaint;
 
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(nullable = false)
     private LocalDate date;
 

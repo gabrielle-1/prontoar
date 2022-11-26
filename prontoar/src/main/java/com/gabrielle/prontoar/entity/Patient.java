@@ -29,7 +29,7 @@ public class Patient extends Person {
     @Column(nullable = false)
     private double height;
 
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(nullable = false)
     private LocalDate birthDate;
 
@@ -37,8 +37,7 @@ public class Patient extends Person {
     }
 
     public Patient(String name, String email, String password, String phoneNumber, int age, String address, char gender,
-            Long cpf,
-            String socialName, double weight, double height, LocalDate birthDate) {
+            Long cpf, String socialName, double weight, double height, LocalDate birthDate) {
         super(name, email, password, phoneNumber, age, address, gender);
         this.cpf = cpf;
         this.socialName = socialName;

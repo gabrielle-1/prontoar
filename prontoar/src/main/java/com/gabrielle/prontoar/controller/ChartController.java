@@ -37,6 +37,11 @@ public class ChartController {
         return this.chartService.updateById(chart, id);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Chart> getChartByID(@PathVariable(value = "id") Long id) {
+        return this.chartService.findChartById(id);
+    }
+
     @GetMapping("/patient/{idPatient}")
     @ResponseBody
     public ResponseEntity<Chart> getPatientById(@PathVariable Long idPatient) {

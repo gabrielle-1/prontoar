@@ -20,6 +20,7 @@
         <img src="./assets/img/undraw_doctor_kw-5-l.svg" alt="" srcset="">
       </div>
       <input id="codigo" value="" style="display: none" type="text"/>
+      <input id="codigoPaciente" value="" style="display: none" type="text"/>
       <div class="form">
         <form onsubmit="return false">
           <div class="form-header">
@@ -52,16 +53,18 @@
             </div>
 
             <div class="input-box">
-              <label for="data"> Data da consulta / Hora</label>
+              <label for="dataNascimento"> Data de Nascimento </label>
               <input
                 id="data"
-                type="datetime-local"
+                type="date"
+                class="data"
                 name="data"
+                placeholder="Digite sua data de nascimento"
                 required
               />
-            </div>
+            </div>  
             
-            <div class="input-box">
+            <!--div class="input-box">
               <label for="idPaciente"> Registro do paciente - ID</label>
               <input
                 id="idPaciente"
@@ -70,7 +73,7 @@
                 placeholder="Digite registro - ID"
                 required
               />
-            </div>
+            </div-->
 
             <div class="input-box">
               <label for="temperatura"> Temperatura </label>
@@ -125,17 +128,17 @@
 
             <div class="gender-groups">
               <div class="gender-input">
-                <input type="radio" name="estadoGeral" id="sim" value="regular" />
+                <input type="radio" name="estadoGeral" id="regular" value="regular" />
                 <label for="sim">Regular</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="estadoGeral" id="nao" value="comprometido" />
+                <input type="radio" name="estadoGeral" id="comprometido" value="comprometido" />
                 <label for="nao">Comprometido</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="estadoGeral" id="others" value="grave" />
+                <input type="radio" name="estadoGeral" id="grave" value="grave" />
                 <label for="others">Grave</label>
               </div>
 
@@ -151,17 +154,17 @@
 
             <div class="gender-groups">
               <div class="gender-input">
-                <input type="radio" name="ist" id="sim" value="sim" />
+                <input type="radio" name="ist" id="ist-sim" value="sim" />
                 <label for="sim">Sim</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="ist" id="nao" value="nao" />
+                <input type="radio" name="ist" id="ist-nao" value="nao" />
                 <label for="nao">Não</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="ist" id="others" value="" />
+                <input type="radio" name="ist" id="ist-others" value="" />
                 <label for="others">Não sei informar</label>
               </div>
             </div>
@@ -178,17 +181,17 @@
 
             <div class="gender-groups">
               <div class="gender-input">
-                <input type="radio" name="deficiencia" id="sim" value="sim" />
+                <input type="radio" name="deficiencia" id="def-sim" value="sim" />
                 <label for="sim">Sim</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="nao" value="nao" />
+                <input type="radio" name="deficiencia" id="def-nao" value="nao" />
                 <label for="nao">Não</label>
               </div>
 
               <div class="gender-input">
-                <input type="radio" name="gender" id="others" value="" />
+                <input type="radio" name="deficiencia" id="def-others" value="others" />
                 <label for="others">Talvez</label>
               </div>
             </div>
@@ -216,8 +219,10 @@
     <script>
       $(document).ready(function (){
         const urlParams = new URLSearchParams(location.search);
-        const codigo = urlParams.get('paciente');
-        document.getElementById("codigo").value = codigo;        
+        const codigoPaciente = urlParams.get('paciente');      
+        document.getElementById("codigoPaciente").value = codigoPaciente;     
+        
+        loadProntuario(codigoPaciente);
       });
     </script>
   </body>

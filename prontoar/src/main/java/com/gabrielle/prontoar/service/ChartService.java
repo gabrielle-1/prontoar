@@ -45,4 +45,10 @@ public class ChartService {
         return this.chartRepository.findPatientById(idPatient);
     }
 
+    public ResponseEntity<Chart> findChartById(Long id) {
+        return this.chartRepository.findById(id)
+                .map(chart -> ResponseEntity.ok().body(chart))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
 }

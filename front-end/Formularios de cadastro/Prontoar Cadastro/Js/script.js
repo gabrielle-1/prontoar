@@ -23,6 +23,25 @@ function save(dados, url, mensagem, tipo){
         return false;  
     });    
 }
+function update(dados, url, mensagem, tipo, id){
+  $.ajax({
+    url: 'http://localhost:8080/api/v1/' + url + "/" + id,
+    method: 'PUT',      
+    data: JSON.stringify(dados),
+    contentType: 'application/json; charset-utf-8',
+    success: function(response) {
+      alert(mensagem); 
+      console.log(response); 
+      if(tipo == 3){
+        // Prontuário
+        location.reload();
+      }
+    }
+  }).fail(function(xhr, status, errorThrown) {
+        console.log(xhr)        
+        return false;  
+    });    
+}
 
 
 function saveDoctor(){
@@ -156,16 +175,57 @@ function findPatient(){
 }
 
 // Prontuário
+function loadProntuario(){
+  const idPaciente = document.getElementById("codigoPaciente");
+  
+  $.ajax({          
+    url: 'http://localhost:8080/api/v1/charts/patient/' + idPaciente.value,
+    method: 'GET',            
+    contentType: 'application/json; charset-utf-8',
+    success: function(response) {
+      console.log(response);
+      verificaProntuarioExiste = true;
+
+      if(verificaProntuarioExiste){
+        const pressaoArterial = document.getElementById("pressaoArterial").value = response.bloodPressure;
+        const queixas = document.getElementById("queixas").value = response.plaint;
+        let date = document.getElementById("data").value =  response.date;
+             
+        const temperatura = document.getElementById("temperatura").value = response.temperature;
+        const prescricao = document.getElementById("prescricao").value = response.prescription;
+        const ocorrencias = document.getElementById("ocorrencias").value = response.occurrences;
+        const doencas = document.getElementById("doencas").value = response.illnesses;
+        
+        let estadoGeral = response.generalState;
+        let ist = response.ist;
+        let deficiencia = response.deficit;
+
+        if(estadoGeral != "") $("#" + estadoGeral).prop("checked", true);
+        if(ist != "") $("#ist-" + ist).prop("checked", true);        
+        if(deficiencia != "")$("#def-" + deficiencia).prop("checked", true);
+          
+      }
+      
+    }
+  }).fail(function(xhr, status, errorThrown) {
+        console.log("xhr:" + xhr);
+        console.log(xhr.status);
+        if(xhr.status == 404){
+          verificaProntuarioExiste = false;          
+        }
+        
+    });  
+}
+
 function saveProntuario(){
+  const idPaciente = document.getElementById("codigoPaciente");
+
+  let verificaProntuarioExiste = false;
+
   const pressaoArterial = document.getElementById("pressaoArterial");
   const queixas = document.getElementById("queixas");
   let date = document.getElementById("data").value;
 
-  // Formatando a data
-  date = date.replace("-", "").replace("-", "");
-  date = parseInt(date);
-
-  const idPaciente = document.getElementById("idPaciente");
   const temperatura = document.getElementById("temperatura");
   const prescricao = document.getElementById("prescricao");
   const ocorrencias = document.getElementById("ocorrencias");
@@ -211,8 +271,27 @@ function saveProntuario(){
     "deficit": deficiencia.value
   };
 
-  if(values){
-    save(values, "charts", "Prontuário salvo com sucesso!", 3);
-  }
 
+  $.ajax({          
+    url: 'http://localhost:8080/api/v1/charts/patient/' + idPaciente.value,
+    method: 'GET',            
+    contentType: 'application/json; charset-utf-8',
+    success: function(response) {
+      console.log(response);
+      verificaProntuarioExiste = true;
+
+      if(verificaProntuarioExiste){
+        update(values, "charts", "Prontuário atualizado com sucesso!", 3, response.id);
+      }
+      
+    }
+  }).fail(function(xhr, status, errorThrown) {
+        console.log("xhr:" + xhr);
+        console.log(xhr.status);
+        if(xhr.status == 404){
+          verificaProntuarioExiste = false;
+          save(values, "charts", "Prontuário salvo com sucesso!", 3);
+        }
+        
+    });   
 }
