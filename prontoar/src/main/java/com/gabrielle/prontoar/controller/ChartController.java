@@ -3,6 +3,7 @@ package com.gabrielle.prontoar.controller;
 import com.gabrielle.prontoar.entity.Chart;
 import com.gabrielle.prontoar.service.ChartService;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequestMapping("api/v1/charts")
 @Slf4j
 @AllArgsConstructor
+@NoArgsConstructor
 public class ChartController {
 
     ChartService chartService;
