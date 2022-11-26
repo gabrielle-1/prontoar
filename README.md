@@ -21,8 +21,18 @@ Projeto desenvolvido na cadeira de Engenharia de Software 1, ministrada na cadei
 - HTML
 - CSS
 - Bootstrap
+- H2 Database
+- Rest API
 
 #### *Passos para reproduzir* ####
 1. Instale o VsCode
 2. Instale o SpringBoot
 3. Instale o JDK
+4. Abra o arquivo do projeto Prontoar, no VsCode.
+5. Instale a extensão do VsCode: Live Server
+6. Execute o Live Server
+
+#### *Arquitetura de Software* ####
+- MVC
+- Cliente-Servidor
+- REST
