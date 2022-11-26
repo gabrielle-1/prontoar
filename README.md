@@ -33,6 +33,9 @@ Projeto desenvolvido na cadeira de Engenharia de Software 1, ministrada na cadei
 6. Execute o Live Server
 
 #### *Arquitetura de Software* ####
-- MVC
+- MVC Web
 - Cliente-Servidor
 - REST
+
+#### *Slide de apresentação do projeto* ####
+[Prontoar](https://www.canva.com/design/DAFTDier4m0/8qhjVJFz7p4DGyqHxJsWRQ/view?utm_content=DAFTDier4m0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
