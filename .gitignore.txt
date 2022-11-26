@@ -1,0 +1,8 @@
+# Ignore os arquivos de sistema do Mac
+.DS_store
+
+# Ignore a pasta target
+target
+
+# Ignore todos os arquivos do vscode
+*.vscode
