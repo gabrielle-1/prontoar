@@ -38,4 +38,7 @@ Projeto desenvolvido na cadeira de Engenharia de Software 1, ministrada na cadei
 - REST
 
 #### *Slide de apresentação do projeto* ####
-[Prontoar](https://www.canva.com/design/DAFTDier4m0/8qhjVJFz7p4DGyqHxJsWRQ/view?utm_content=DAFTDier4m0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Prontoar](https://www.canva.com/design/DAFTDier4m0/8qhjVJFz7p4DGyqHxJsWRQ/view?utm_content=DAFTDier4m0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+#### *Metodologia Agile* ####
+- [Kanban](https://trello.com/invite/prontoar2/26d3509833af1883c719decc2ccb2fe2) 
