@@ -1,0 +1,5 @@
+com\gabrielle\prontoar\ProntoarApplicationTests.class
+com\gabrielle\prontoar\service\ChartServiceTest.class
+com\gabrielle\prontoar\service\DoctorServiceTest.class
+com\gabrielle\prontoar\service\PatientServiceTest.class
+com\gabrielle\prontoar\controller\ChartControllerTest.class
