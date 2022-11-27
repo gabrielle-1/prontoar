@@ -1,5 +1,6 @@
-package com.gabrielle.prontoar.service;
+package com.gabrielle.prontoar.integration.controller;
 
+import com.gabrielle.prontoar.controller.ChartController;
 import com.gabrielle.prontoar.entity.Chart;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,11 +12,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.time.LocalDate;
 
 @ExtendWith(SpringExtension.class)
-public class ChartServiceTest {
+public class ChartControllerTest {
 
     Chart chart;
     @Mock
-    ChartService chartService = new ChartService();
+    ChartController charController = new ChartController();
 
     @BeforeEach
     public void setup() {
@@ -37,15 +38,8 @@ public class ChartServiceTest {
     }
 
     @Test
-    public void chartServiceRunCreateMethodTest() {
-        chartService.createChart(chart);
-        Mockito.verify(chartService).createChart(chart);
+    public void saveChart() {
+        charController.createChart(chart);
+        Mockito.when(charController.createChart(chart)).thenReturn(chart);
     }
-
-    @Test
-    public void chartServiceRunUpdateMethodTest() {
-        chartService.updateById(chart, 1L);
-        Mockito.verify(chartService).updateById(chart, 1L);
-    }
-
 }

@@ -1,6 +1,7 @@
-package com.gabrielle.prontoar.service;
+package com.gabrielle.prontoar.integration.service;
 
 import com.gabrielle.prontoar.entity.Doctor;
+import com.gabrielle.prontoar.service.DoctorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

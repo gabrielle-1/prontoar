@@ -1,7 +1,8 @@
-package com.gabrielle.prontoar.service;
+package com.gabrielle.prontoar.integration.service;
 
 import java.time.LocalDate;
 
+import com.gabrielle.prontoar.service.PatientService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
