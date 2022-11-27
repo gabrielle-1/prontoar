@@ -43,7 +43,7 @@ public class PatientController {
         if (returnValue != null) {
             return new ResponseEntity<Patient>(returnValue, HttpStatus.OK);
         } else {
-            return new ResponseEntity<Patient>(returnValue, HttpStatus.OK).notFound().build();
+            return new ResponseEntity<Patient>(HttpStatus.OK).notFound().build();
         }
     }
 

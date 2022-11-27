@@ -16,7 +16,7 @@ public class ChartServiceTest {
 
     Chart chart;
     @Mock
-    ChartService chartService = new ChartService();
+    ChartService chartService;
 
     @BeforeEach
     public void setup() {
