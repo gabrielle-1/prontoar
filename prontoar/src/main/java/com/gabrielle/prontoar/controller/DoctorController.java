@@ -46,9 +46,9 @@ public class DoctorController {
 
     @PostMapping("/login")
     public ResponseEntity<Doctor> login(@RequestBody Doctor doctor) {
-        boolean validate = doctorService.validate(doctor);
-        if (validate) {
-            return ResponseEntity.status(HttpStatus.OK).body(doctor);
+        var doctorValidate = doctorService.validate(doctor);
+        if (doctorValidate != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(doctorValidate);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }

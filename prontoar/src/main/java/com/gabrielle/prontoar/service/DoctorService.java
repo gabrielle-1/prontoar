@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class DoctorService {
 
@@ -48,13 +49,18 @@ public class DoctorService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
-    public boolean validate(Doctor doctor) {
+    public Doctor validate(Doctor doctor) {
+
+        boolean valid = false;
         Doctor doctorByEmail = doctorRepository.findByEmail(doctor.getEmail());
         Doctor doctorByCrm = doctorRepository.findByCrm(doctor.getCrm());
 
-        if(doctorByEmail != null && doctorByCrm != null)
-            return true;
+        if (doctorByEmail != null && doctorByCrm != null)
+            valid = true;
 
-        return false;
+        if (valid) {
+            return doctorByEmail;
+        }
+        return null;
     }
 }

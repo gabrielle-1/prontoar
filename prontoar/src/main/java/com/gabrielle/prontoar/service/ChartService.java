@@ -3,12 +3,15 @@ package com.gabrielle.prontoar.service;
 import com.gabrielle.prontoar.entity.Chart;
 import com.gabrielle.prontoar.repository.ChartRepository;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Service
 public class ChartService {
 
