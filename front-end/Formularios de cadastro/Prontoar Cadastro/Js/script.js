@@ -102,6 +102,23 @@ function loadDoctor(codigo){
     });  
 }
 
+function loadPatient(codigo){
+  
+  $.ajax({          
+    url: 'http://localhost:8080/api/v1/patients/' + codigo,
+    method: 'GET',            
+    contentType: 'application/json; charset-utf-8',
+    success: function(response) {
+      document.getElementById("divPatientName").style.display = "block";
+      document.getElementById("namePatient").innerHTML = "Paciente: " + response.name;    
+    }
+  }).fail(function(xhr, status, errorThrown) {
+        if(xhr.status == 404){
+          console.log("Paciente não existe." + xhr.status);
+        }        
+    });  
+}
+
 function savePatient(){
   const nome = document.getElementById("first-name");
   const sobrenome = document.getElementById("last-name");
@@ -169,16 +186,12 @@ function findPatient(){
       url: 'http://localhost:8080/api/v1/patients/find/' + strCpf,
       method: 'GET',            
       contentType: 'application/json; charset-utf-8',
-      success: function(response) {
-          document.getElementById("nomePaciente").style.display = "block";               
-          document.getElementById("nome").value = response.name;                     
+      success: function(response) {                 
           document.location = "TelaProntuario.html?paciente=" + response.id;
       }
     }).fail(function(xhr, status, errorThrown) {
           console.log(xhr.status);
-          if(xhr.status == 404){
-            document.getElementById("nomePaciente").style.display = "none";               
-            document.getElementById("nome").value = "";   
+          if(xhr.status == 404){  
             alert("Paciente não encontrado!");
             return false;
           }
