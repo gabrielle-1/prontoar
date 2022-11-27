@@ -92,9 +92,6 @@ public class PatientServiceTest {
         var deleteId = this.patientService.deleteById(this.patient.getId());
         Assertions.assertNotNull(deleteId,  "Excluido com sucesso!");
     }
-    
-    
-    
 }
 
 
