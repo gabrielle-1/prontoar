@@ -1,7 +1,6 @@
 package com.gabrielle.prontoar.service;
 
 import com.gabrielle.prontoar.entity.Doctor;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,10 +13,10 @@ public class DoctorServiceTest {
 
     Doctor doctor;
     @Mock
-    DoctorService doctorService = new DoctorService();
+    DoctorService doctorService;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         String name = "João Carlos";
         String email = "joaocarlos@gmail.com";
         String phoneNumber = "827723283";
@@ -35,6 +34,5 @@ public class DoctorServiceTest {
         doctorService.createDoctor(doctor);
         Mockito.verify(doctorService).createDoctor(doctor);
     }
-
 
 }

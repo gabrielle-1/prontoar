@@ -1,39 +1,31 @@
 package com.gabrielle.prontoar.service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Optional;
 
-import com.gabrielle.prontoar.repository.PatientRepository;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.gabrielle.prontoar.entity.Patient;
-
-import static org.springframework.http.ResponseEntity.ok;
 
 @ExtendWith(SpringExtension.class)
 public class PatientServiceTest {
 
     Patient patient;
+
     @Mock
-    PatientService patientService = new PatientService();
+    PatientService patientService;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         String name = "Ana Maria";
-        Long cpf = 99899828L;
-        int age = 12;
-        char gender = 'f';
+        Long cpf = 87688962657L;
+        int age = 21;
+        char gender = 'F';
         String phoneNumber = "827723283";
         String email = "anamaria@gmail.com";
         double weight = 74;
@@ -54,7 +46,7 @@ public class PatientServiceTest {
     }
 
     @Test
-    public void patientServiceFindPatientByCPFTest(){
+    public void patientServiceFindPatientByCPFTest() {
         patientService.createPatient(patient);
         Mockito.when(patientService.findByCpf(99899828L)).thenReturn(patient);
         Assertions.assertEquals(patient, patientService.findByCpf(99899828L));

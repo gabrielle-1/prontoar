@@ -18,7 +18,7 @@ public class ChartServiceTest {
     ChartService chartService = new ChartService();
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         Long idPatient = 1L;
         Long idDoctor = 1L;
         int bloodPressure = 12;
@@ -43,7 +43,7 @@ public class ChartServiceTest {
     }
 
     @Test
-    public void chartServiceRunUpdateMethodTest(){
+    public void chartServiceRunUpdateMethodTest() {
         chartService.updateById(chart, 1L);
         Mockito.verify(chartService).updateById(chart, 1L);
     }
