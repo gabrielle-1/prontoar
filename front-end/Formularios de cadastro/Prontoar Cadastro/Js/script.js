@@ -85,6 +85,23 @@ function saveDoctor(){
   }
 }
 
+function loadDoctor(codigo){
+  $.ajax({          
+    url: 'http://localhost:8080/api/v1/doctors/' + codigo,
+    method: 'GET',            
+    contentType: 'application/json; charset-utf-8',
+    success: function(response) {
+      document.getElementById("divDoctorName").style.display = "block";
+      document.getElementById("nameDoctor").innerHTML = "Olá, " + response.name + "!";
+    }
+  }).fail(function(xhr, status, errorThrown) {
+        if(xhr.status == 404){
+          console.log("Medico não existe." + xhr.status);
+        }
+        
+    });  
+}
+
 function savePatient(){
   const nome = document.getElementById("first-name");
   const sobrenome = document.getElementById("last-name");
@@ -118,10 +135,6 @@ function savePatient(){
     alert("CPFs estão diferentes!");
     return false;
   }
-
-  // Formatando a data
-  date = date.replace("-", "").replace("-", "");
-  date = parseInt(date);
 
   // Criação dos dados em um Json
   const values  = {

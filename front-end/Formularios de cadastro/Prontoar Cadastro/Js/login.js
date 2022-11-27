@@ -64,7 +64,8 @@ function loginDoctor(){
       success: function(response) {   
         if(response){
           // Login correto!        
-          document.location = "TelaInicialMedico.html";
+          console.log(response);
+          document.location = "TelaInicialMedico.html?doctor=" + response.id;
         }      
       }
     }).fail(function(xhr, status, errorThrown) {

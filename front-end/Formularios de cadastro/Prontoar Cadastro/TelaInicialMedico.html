@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="../Prontoar Cadastro/Js/login.js" defer></script>
   <link rel="stylesheet" href="./assets/css/TelaInicialMedico.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous">
+</script>
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png" />
     <title>Tela Inicial do Médico</title>
 </head>
@@ -14,7 +19,7 @@
         <div class="form-image">
           <img src="./assets/img/undraw_doctor_kw-5-l.svg" alt="" srcset="">
         </div>
-        
+        <input id="codigo" value="" style="display: none" type="text"/>
         <div class="form">
           <form onsubmit="return false">
             <div class="form-header">
@@ -22,7 +27,11 @@
                 <h1>Prontoar</h1>
               </div>
             </div>
-          
+            <div class="form-header" id="divDoctorName" style="display: none;">
+              <div class="title">
+                <h1 id="nameDoctor"></h1>
+              </div>
+            </div>
                 <div class="input-box">
                     <div class="log-in-button">
                     <button>                  
@@ -38,5 +47,14 @@
                     </button>
                     </div>
                 </div>
+        <script src="./Js/script.js"></script>
+        <script>
+          $(document).ready(function (){
+            const urlParams = new URLSearchParams(location.search);
+            const codigo = urlParams.get('doctor');      
+            document.getElementById("codigo").value = codigo;     
+            loadDoctor(codigo);           
+          });
+        </script>
   </body>
 </html>
