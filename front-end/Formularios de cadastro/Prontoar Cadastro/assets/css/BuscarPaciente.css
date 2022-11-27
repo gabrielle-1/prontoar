@@ -65,6 +65,7 @@ body {
   padding: 0.6rem 3rem;
   border-radius: 99px;
   cursor: pointer;
+  margin-right: 1.2rem;
 }
 
 .log-in-button button :hover {
