@@ -1,4 +1,4 @@
-package com.gabrielle.prontoar;
+package com.gabrielle.prontoar.controller;
 
 import com.gabrielle.prontoar.controller.ChartController;
 import com.gabrielle.prontoar.entity.Chart;
@@ -11,7 +11,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
 
-
 @ExtendWith(SpringExtension.class)
 public class ChartControllerTest {
 
@@ -20,7 +19,7 @@ public class ChartControllerTest {
     ChartController charController = new ChartController();
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         Long idPatient = 1L;
         Long idDoctor = 1L;
         int bloodPressure = 12;
